@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:41 by schuah            #+#    #+#             */
-/*   Updated: 2022/10/28 17:07:45 by schuah           ###   ########.fr       */
+/*   Updated: 2022/10/31 16:28:01 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 int	main(int ac, char **av)
 {
-	(void)ac;
-	(void)av;
-	ft_printf("Hello World!\n");
+	t_gm	gm;
+
+	c3d_check_file(ac, av);
+	c3d_success_exit();
 	return (0);
+	(void)gm;
 }
