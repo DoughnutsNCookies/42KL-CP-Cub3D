@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 12:41:51 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/01 15:13:24 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/01 16:25:43 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,36 @@ static void	set_texture(t_img *img, void *mlx, char **split)
 
 	if (split[1] == NULL)
 		c3d_fail_exit("No path set for texture");
+	if (img->ref != NULL)
+		c3d_fail_exit("Duplicated texture found");
 	copy = ft_strndup(split[1], ft_strlen(split[1]) - 1);
 	img->ref = mlx_xpm_file_to_image(mlx, copy, &img->size.x, &img->size.y);
 	free(copy);
 	if (img->ref == NULL)
 		c3d_fail_exit("Invalid path set for texture");
+}
+
+static int	is_all_num(char *str1, char *str2, char *str3)
+{
+	while (*str1 && *str1 != '\n')
+	{
+		if (*str1 < '0' || *str1 > '9')
+			return (0);
+		str1++;
+	}
+	while (*str2 && *str2 != '\n')
+	{
+		if (*str2 < '0' || *str2 > '9')
+			return (0);
+		str2++;
+	}
+	while (*str3 && *str3 != '\n')
+	{
+		if (*str3 < '0' || *str3 > '9')
+			return (0);
+		str3++;
+	}
+	return (1);
 }
 
 static void	set_color(t_rgb *rgb, char **split)
@@ -31,12 +56,15 @@ static void	set_color(t_rgb *rgb, char **split)
 
 	if (split[1] == NULL)
 		c3d_fail_exit("No color set for floor or ceiling");
-	else if (ft_getwc(split[1], ',') != 3)
+	else if (ft_getwc(split[1], ',') != 3 || split[2] != NULL)
 		c3d_fail_exit("Invalid RGB values");
 	rgb_split = ft_split(split[1], ',');
 	rgb->r = ft_atoi(rgb_split[0]);
 	rgb->g = ft_atoi(rgb_split[1]);
 	rgb->b = ft_atoi(rgb_split[2]);
+	if (rgb->r > 255 || rgb->g > 255 || rgb->b > 255
+		|| !is_all_num(rgb_split[0], rgb_split[1], rgb_split[2]))
+		c3d_fail_exit("Invalid RGB values");
 	rgb->hex = (0 << 24 | rgb->r << 16 | rgb->g << 8 | rgb->b);
 	ft_freesplit(rgb_split);
 }

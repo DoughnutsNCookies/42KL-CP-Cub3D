@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:57 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/01 14:56:09 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/01 16:20:59 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ typedef struct s_vct
 /* RGB struct */
 typedef struct s_rgb
 {
-	int	r;
-	int	g;
-	int	b;
-	int	hex;
+	unsigned int	r;
+	unsigned int	g;
+	unsigned int	b;
+	int				hex;
 }	t_rgb;
 
 /* Image struct */
@@ -89,6 +89,6 @@ void	check_element(t_gm *gm, char **av);
 int		c3d_fail_exit(char *str);
 int		c3d_success_exit(void);
 
-void 	c3d_hooks(t_gm *gm);
+void	c3d_hooks(t_gm *gm);
 
 #endif
