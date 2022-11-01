@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c3d_main.c                                         :+:      :+:    :+:   */
+/*   ft_freesplit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 16:57:41 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/01 14:55:27 by schuah           ###   ########.fr       */
+/*   Created: 2022/10/31 16:32:43 by schuah            #+#    #+#             */
+/*   Updated: 2022/10/31 16:43:00 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "c3d.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	ft_freesplit(char **split)
 {
-	t_gm	gm;
+	int	i;
 
-	c3d_init_gm(&gm);
-	c3d_check_file(&gm, ac, av);
-	c3d_hooks(&gm);
-	mlx_loop(gm.mlx);
-	c3d_success_exit();
-	return (0);
-	(void)gm;
+	i = -1;
+	while (split[++i] != NULL)
+		free(split[i]);
+	free(split);
 }

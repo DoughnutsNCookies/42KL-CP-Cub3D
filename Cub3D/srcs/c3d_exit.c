@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c3d_main.c                                         :+:      :+:    :+:   */
+/*   c3d_exit.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 16:57:41 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/01 14:55:27 by schuah           ###   ########.fr       */
+/*   Created: 2022/10/31 16:16:44 by schuah            #+#    #+#             */
+/*   Updated: 2022/11/01 14:56:31 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "c3d.h"
 
-int	main(int ac, char **av)
+int	c3d_fail_exit(char *str)
 {
-	t_gm	gm;
+	ft_dprintf(2, "Error\n%s\n", str);
+	system("leaks -q cub3D");
+	exit(1);
+	return (1);
+}
 
-	c3d_init_gm(&gm);
-	c3d_check_file(&gm, ac, av);
-	c3d_hooks(&gm);
-	mlx_loop(gm.mlx);
-	c3d_success_exit();
+int	c3d_success_exit(void)
+{
+	ft_printf("Thanks for playing!\n");
+	system("leaks -q cub3D");
+	exit(0);
 	return (0);
-	(void)gm;
 }

@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:57 by schuah            #+#    #+#             */
-/*   Updated: 2022/10/31 16:27:42 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/01 14:56:09 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@
 # define EXIT_EVENT	17
 # define EXIT_MASK	0
 
+/* Player prefs */
+# define WIN_H		1280
+# define WIN_W		800
+
 /* Vector struct */
 typedef struct s_vct
 {
@@ -37,10 +41,10 @@ typedef struct s_vct
 /* RGB struct */
 typedef struct s_rgb
 {
-	int				r;
-	int				g;
-	int				b;
-	unsigned long	hex;
+	int	r;
+	int	g;
+	int	b;
+	int	hex;
 }	t_rgb;
 
 /* Image struct */
@@ -76,9 +80,15 @@ typedef struct s_gm
 	t_map	map;
 }	t_gm;
 
-void	c3d_check_file(int ac, char **av);
+void	c3d_init_gm(t_gm *gm);
 
-void	c3d_fail_exit(char *str);
-void	c3d_success_exit(void);
+void	c3d_check_file(t_gm *gm, int ac, char **av);
+
+void	check_element(t_gm *gm, char **av);
+
+int		c3d_fail_exit(char *str);
+int		c3d_success_exit(void);
+
+void 	c3d_hooks(t_gm *gm);
 
 #endif

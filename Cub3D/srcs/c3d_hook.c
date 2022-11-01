@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c3d_main.c                                         :+:      :+:    :+:   */
+/*   c3d_hook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 16:57:41 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/01 14:55:27 by schuah           ###   ########.fr       */
+/*   Created: 2022/11/01 14:30:19 by schuah            #+#    #+#             */
+/*   Updated: 2022/11/01 14:33:08 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "c3d.h"
 
-int	main(int ac, char **av)
+void c3d_hooks(t_gm *gm)
 {
-	t_gm	gm;
-
-	c3d_init_gm(&gm);
-	c3d_check_file(&gm, ac, av);
-	c3d_hooks(&gm);
-	mlx_loop(gm.mlx);
-	c3d_success_exit();
-	return (0);
-	(void)gm;
+	mlx_hook(gm->win.ref, EXIT_EVENT, EXIT_MASK, &c3d_success_exit, NULL);
 }
