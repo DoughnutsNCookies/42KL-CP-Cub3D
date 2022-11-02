@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:57 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/02 16:05:18 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/02 17:28:00 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,9 @@ typedef struct s_map
 	t_img	e_img;
 	t_img	s_img;
 	t_img	w_img;
+	char	**map;
+	int		x;
+	int		y;
 }	t_map;
 
 /* Gamemaster struct*/
