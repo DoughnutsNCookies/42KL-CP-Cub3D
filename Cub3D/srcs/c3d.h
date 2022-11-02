@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:57 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/02 18:20:42 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/02 22:45:05 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,11 @@ typedef struct s_gm
 
 void	c3d_init_gm(t_gm *gm);
 
-void	c3d_check_file(t_gm *gm, int ac, char **av);
 void	c3d_get_map(t_gm *gm, char *str, int fd);
+
+void	c3d_check_file(t_gm *gm, int ac, char **av);
 void	c3d_check_element(t_gm *gm, char **av);
+void	c3d_check_map(t_gm *gm);
 
 void	c3d_all_elements_present(t_gm *gm);
 int		c3d_map_contents_only(char *str);
