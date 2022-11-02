@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   c3d_checkelement.c                                 :+:      :+:    :+:   */
+/*   c3d_check_element.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 12:41:51 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/01 16:25:43 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/02 14:33:57 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,14 @@ static void	get_element(t_gm *gm, char **split)
 		set_color(&gm->map.c_rgb, split);
 }
 
-void	check_element(t_gm *gm, char **av)
+static void	get_map(t_gm *gm, char *str, int fd)
+{
+	if (c3d_map_contents_only(str) == 0)
+		return ;
+	c3d_all_elements_present(gm, fd);
+}
+
+void	c3d_check_element(t_gm *gm, char **av)
 {
 	int		fd;
 	char	*str;
@@ -97,15 +104,11 @@ void	check_element(t_gm *gm, char **av)
 	str = get_next_line(fd);
 	while (str)
 	{
-		split = ft_split(str, ' ');
+		split = ft_split_charset(str, " \t");
 		get_element(gm, split);
+		get_map(gm, str, fd);
 		free(str);
 		ft_freesplit(split);
 		str = get_next_line(fd);
 	}
-	if (!gm->map.n_img.ref || !gm->map.e_img.ref
-		|| !gm->map.s_img.ref || !gm->map.w_img.ref
-		|| gm->map.c_rgb.hex < 0 || gm->map.f_rgb.hex < 0)
-		c3d_fail_exit("Missing element");
-	close(fd);
 }

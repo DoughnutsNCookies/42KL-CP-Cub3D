@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 14:11:28 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/01 15:44:37 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/02 12:29:32 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,5 @@ static void	check_file_format(int ac, char **av)
 void	c3d_check_file(t_gm *gm, int ac, char **av)
 {
 	check_file_format(ac, av);
-	check_element(gm, av);
+	c3d_check_element(gm, av);
 }

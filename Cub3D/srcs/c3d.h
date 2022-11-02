@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:57 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/01 16:20:59 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/02 12:39:49 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,10 @@ void	c3d_init_gm(t_gm *gm);
 
 void	c3d_check_file(t_gm *gm, int ac, char **av);
 
-void	check_element(t_gm *gm, char **av);
+void	c3d_check_element(t_gm *gm, char **av);
+
+void	c3d_all_elements_present(t_gm *gm, int fd);
+int		c3d_map_contents_only(char *str);
 
 int		c3d_fail_exit(char *str);
 int		c3d_success_exit(void);
