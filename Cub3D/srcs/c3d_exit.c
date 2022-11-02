@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 16:16:44 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/02 12:47:04 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/02 15:55:58 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	c3d_fail_exit(char *str)
 int	c3d_success_exit(void)
 {
 	// ft_printf("Thanks for playing!\n");
-	// system("leaks -q cub3D");
+	system("leaks -q cub3D");
 	exit(0);
 	return (0);
 }

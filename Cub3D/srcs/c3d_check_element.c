@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 12:41:51 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/02 14:33:57 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/02 16:27:24 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,13 @@
 
 static void	set_texture(t_img *img, void *mlx, char **split)
 {
-	char	*copy;
-
 	if (split[1] == NULL)
 		c3d_fail_exit("No path set for texture");
 	if (img->ref != NULL)
 		c3d_fail_exit("Duplicated texture found");
-	copy = ft_strndup(split[1], ft_strlen(split[1]) - 1);
-	img->ref = mlx_xpm_file_to_image(mlx, copy, &img->size.x, &img->size.y);
-	free(copy);
+	img->ref = mlx_xpm_file_to_image(mlx, split[1], &img->size.x, &img->size.y);
 	if (img->ref == NULL)
 		c3d_fail_exit("Invalid path set for texture");
-}
-
-static int	is_all_num(char *str1, char *str2, char *str3)
-{
-	while (*str1 && *str1 != '\n')
-	{
-		if (*str1 < '0' || *str1 > '9')
-			return (0);
-		str1++;
-	}
-	while (*str2 && *str2 != '\n')
-	{
-		if (*str2 < '0' || *str2 > '9')
-			return (0);
-		str2++;
-	}
-	while (*str3 && *str3 != '\n')
-	{
-		if (*str3 < '0' || *str3 > '9')
-			return (0);
-		str3++;
-	}
-	return (1);
 }
 
 static void	set_color(t_rgb *rgb, char **split)
@@ -56,14 +29,14 @@ static void	set_color(t_rgb *rgb, char **split)
 
 	if (split[1] == NULL)
 		c3d_fail_exit("No color set for floor or ceiling");
-	else if (ft_getwc(split[1], ',') != 3 || split[2] != NULL)
-		c3d_fail_exit("Invalid RGB values");
-	rgb_split = ft_split(split[1], ',');
+	else if (ft_getwc_charset(split[1], ", \t\n") != 3 || split[2] != NULL)
+		c3d_fail_exit("Invalid RGB valuesss");
+	rgb_split = ft_split_charset(split[1], ", \t\n");
 	rgb->r = ft_atoi(rgb_split[0]);
 	rgb->g = ft_atoi(rgb_split[1]);
 	rgb->b = ft_atoi(rgb_split[2]);
 	if (rgb->r > 255 || rgb->g > 255 || rgb->b > 255
-		|| !is_all_num(rgb_split[0], rgb_split[1], rgb_split[2]))
+		|| !c3d_is_all_num(rgb_split[0], rgb_split[1], rgb_split[2]))
 		c3d_fail_exit("Invalid RGB values");
 	rgb->hex = (0 << 24 | rgb->r << 16 | rgb->g << 8 | rgb->b);
 	ft_freesplit(rgb_split);
@@ -85,13 +58,6 @@ static void	get_element(t_gm *gm, char **split)
 		set_color(&gm->map.c_rgb, split);
 }
 
-static void	get_map(t_gm *gm, char *str, int fd)
-{
-	if (c3d_map_contents_only(str) == 0)
-		return ;
-	c3d_all_elements_present(gm, fd);
-}
-
 void	c3d_check_element(t_gm *gm, char **av)
 {
 	int		fd;
@@ -104,11 +70,11 @@ void	c3d_check_element(t_gm *gm, char **av)
 	str = get_next_line(fd);
 	while (str)
 	{
-		split = ft_split_charset(str, " \t");
+		split = ft_split_charset(str, " \t\n");
 		get_element(gm, split);
-		get_map(gm, str, fd);
-		free(str);
+		c3d_check_map(gm, str, fd);
 		ft_freesplit(split);
 		str = get_next_line(fd);
 	}
+	close(fd);
 }

@@ -6,13 +6,13 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 14:30:19 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/01 14:33:08 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/02 14:55:16 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "c3d.h"
 
-void c3d_hooks(t_gm *gm)
+void	c3d_hooks(t_gm *gm)
 {
 	mlx_hook(gm->win.ref, EXIT_EVENT, EXIT_MASK, &c3d_success_exit, NULL);
 }

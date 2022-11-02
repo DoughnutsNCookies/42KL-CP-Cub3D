@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   temp.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 18:30:18 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/02 15:59:32 by schuah           ###   ########.fr       */
+/*   Created: 2022/11/02 15:54:17 by schuah            #+#    #+#             */
+/*   Updated: 2022/11/02 17:10:47 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "c3d.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	print_ll(t_list **list)
 {
-	t_list	*temp;
+	t_list	*node;
 
-	if (!lst || !*lst || !del)
-		return ;
-	while (lst != NULL && *lst != NULL)
+	node = *list;
+	while (node != NULL)
 	{
-		temp = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = temp;
+		ft_printf("|%s|\n", *(char **)node->content);
+		node = node->next;
 	}
 }
