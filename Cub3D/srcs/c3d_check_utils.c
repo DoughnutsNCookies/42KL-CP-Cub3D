@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 12:27:11 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/02 17:45:35 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/02 18:10:15 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,13 @@ int	c3d_is_all_num(char *str1, char *str2, char *str3)
 		str3++;
 	}
 	return (1);
+}
+
+void	c3d_trim_back_spaces(char *str, int len)
+{
+	if (len == 0 || str[len] != ' ')
+		return ;
+	if (str[len] == ' ')
+		str[len] = '\0';
+	c3d_trim_back_spaces(str, len - 1);
 }

@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 12:41:51 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/02 16:27:24 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/02 18:26:19 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,11 @@ void	c3d_check_element(t_gm *gm, char **av)
 	{
 		split = ft_split_charset(str, " \t\n");
 		get_element(gm, split);
-		c3d_check_map(gm, str, fd);
+		c3d_get_map(gm, str, fd);
 		ft_freesplit(split);
 		str = get_next_line(fd);
 	}
 	close(fd);
+	if (gm->map.map != NULL)
+		print_da(gm->map.map);
 }
