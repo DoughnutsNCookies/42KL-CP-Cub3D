@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 12:27:11 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/03 13:30:04 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/03 20:25:34 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int	c3d_map_contents_only(char *str)
 	{
 		if ((str[i] != '1' && str[i] != '0' && str[i] != 'N' && str[i] != 'E'
 				&& str[i] != 'S' && str[i] != 'W' && str[i] != ' '
-				&& str[i] != '\t' && (str[i] != '\n' || i == 0))
+				&& str[i] != 'D' && str[i] != '\t'
+				&& (str[i] != '\n' || i == 0))
 			|| str[ft_strlen(str) - 1] != '\n')
 			return (0);
 	}

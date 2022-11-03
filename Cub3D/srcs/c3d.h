@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:57 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/03 13:13:54 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/03 21:11:20 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,13 @@ typedef struct s_win
 	t_vct	size;
 }	t_win;
 
+/* Door struct */
+typedef struct s_door
+{
+	t_vct			pos;
+	struct s_door	*next;
+}	t_door;
+
 /* Map struct */
 typedef struct s_map
 {
@@ -70,10 +77,13 @@ typedef struct s_map
 	t_img	e_img;
 	t_img	s_img;
 	t_img	w_img;
+	t_img	d_img;
+	t_list	*door;
 	char	**map;
 	t_vct	size;
 }	t_map;
 
+/* Player struct */
 typedef struct s_ply
 {
 	enum
@@ -118,5 +128,6 @@ void	c3d_hooks(t_gm *gm);
 // Temp (TO DELETE)
 void	print_ll(t_list **list);
 void	print_da(char **array);
+void	print_dl(t_list **list);
 
 #endif
