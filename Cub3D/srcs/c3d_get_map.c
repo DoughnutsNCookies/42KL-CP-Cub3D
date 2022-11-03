@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 14:59:18 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/03 12:22:12 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/03 13:44:47 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,12 @@ static void	store_map(t_gm *gm, t_list **map_list)
 	if (checked)
 		return ;
 	checked = 1;
-	gm->map.y = ft_lstsize(*map_list);
-	gm->map.x = get_map_width(map_list);
-	gm->map.map = ft_calloc(gm->map.y + 1, sizeof(char *));
+	gm->map.size.y = ft_lstsize(*map_list);
+	gm->map.size.x = get_map_width(map_list);
+	gm->map.map = ft_calloc(gm->map.size.y + 1, sizeof(char *));
 	i = -1;
 	node = *map_list;
-	while (++i < gm->map.y)
+	while (++i < gm->map.size.y)
 	{
 		gm->map.map[i] = c3d_pad_spaces(gm, *(char **)node->content);
 		node = node->next;

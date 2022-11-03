@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:57 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/03 12:08:12 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/03 13:13:54 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,21 @@ typedef struct s_map
 	t_img	s_img;
 	t_img	w_img;
 	char	**map;
-	int		x;
-	int		y;
+	t_vct	size;
 }	t_map;
+
+typedef struct s_ply
+{
+	enum
+	{
+		NOTSET,
+		NORTH,
+		EAST,
+		SOUTH,
+		WEST
+	}	e_dir;
+	t_vct	pos;
+}	t_ply;
 
 /* Gamemaster struct*/
 typedef struct s_gm
@@ -81,6 +93,7 @@ typedef struct s_gm
 	void	*mlx;
 	t_win	win;
 	t_map	map;
+	t_ply	ply;
 }	t_gm;
 
 void	c3d_init_gm(t_gm *gm);
@@ -89,7 +102,7 @@ void	c3d_get_map(t_gm *gm, char *str, int fd);
 
 void	c3d_check_file(t_gm *gm, int ac, char **av);
 void	c3d_check_element(t_gm *gm, char **av);
-void	c3d_check_map(t_gm *gm);
+void	c3d_check_map(t_gm *gm, int x, int y);
 
 void	c3d_all_elements_present(t_gm *gm);
 int		c3d_map_contents_only(char *str);

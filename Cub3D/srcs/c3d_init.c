@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 14:54:26 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/02 18:14:59 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/03 13:13:58 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,5 @@ void	c3d_init_gm(t_gm *gm)
 	gm->map.map = NULL;
 	gm->map.c_rgb.hex = -1;
 	gm->map.f_rgb.hex = -1;
+	gm->ply.e_dir = NOTSET;
 }

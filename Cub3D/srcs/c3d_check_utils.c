@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 12:27:11 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/03 12:22:04 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/03 13:30:04 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	c3d_trim_spaces(char *str, int len)
 
 char	*c3d_pad_spaces(t_gm *gm, char *str)
 {
-	if (ft_strlen(str) < (size_t)gm->map.x)
+	if (ft_strlen(str) < (size_t)gm->map.size.x)
 	{
 		str = ft_append_char(str, ' ');
 		return (c3d_pad_spaces(gm, str));
