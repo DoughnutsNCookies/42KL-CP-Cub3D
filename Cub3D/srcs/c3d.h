@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:57 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/02 22:45:05 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/03 12:08:12 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,8 @@ void	c3d_check_map(t_gm *gm);
 void	c3d_all_elements_present(t_gm *gm);
 int		c3d_map_contents_only(char *str);
 int		c3d_is_all_num(char *str1, char *str2, char *str3);
-void	c3d_trim_back_spaces(char *str, int len);
+void	c3d_trim_spaces(char *str, int len);
+char	*c3d_pad_spaces(t_gm *gm, char *str);
 
 int		c3d_fail_exit(char *str);
 int		c3d_success_exit(void);

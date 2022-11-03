@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 14:59:18 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/02 22:42:37 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/03 12:22:12 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	add_map(t_list **map_list, char *str)
 		else if (str[i] != '\n')
 			temp = ft_append_char(temp, str[i]);
 	}
-	c3d_trim_back_spaces(temp, ft_strlen(temp) - 1);
+	c3d_trim_spaces(temp, ft_strlen(temp) - 1);
 	ft_memcpy(node->content, &temp, sizeof(char *));
 	ft_lstadd_back(map_list, node);
 }
@@ -65,7 +65,7 @@ static void	store_map(t_gm *gm, t_list **map_list)
 	node = *map_list;
 	while (++i < gm->map.y)
 	{
-		gm->map.map[i] = *(char **)node->content;
+		gm->map.map[i] = c3d_pad_spaces(gm, *(char **)node->content);
 		node = node->next;
 	}
 	gm->map.map[i] = 0;
@@ -75,16 +75,12 @@ void	c3d_get_map(t_gm *gm, char *str, int fd)
 {
 	static int		mapmode = 0;
 	static t_list	*map_list = NULL;
-	int				errno;
 
-	errno = c3d_map_contents_only(str);
-	if (errno <= 0)
+	if (c3d_map_contents_only(str) == 0)
 	{
 		free(str);
-		if (mapmode && errno == -1)
-			c3d_fail_exit("Invalid character in map");
 		if (mapmode && str != NULL)
-			c3d_fail_exit("Extra new line at end of file");
+			c3d_fail_exit("Invalid character in map");
 		return ;
 	}
 	c3d_all_elements_present(gm);
