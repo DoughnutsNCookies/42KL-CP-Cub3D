@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 21:36:13 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/03 13:20:14 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/03 14:22:02 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	check_square(t_gm *gm, int x, int y)
 {
 	if (y < 0 || y >= gm->map.size.y || x < 0 || x >= gm->map.size.x)
-		return (0);
+		return (1);
 	return (gm->map.map[y][x] != '1' && gm->map.map[y][x] != '0'
 		&& gm->map.map[y][x] != 'N' && gm->map.map[y][x] != 'E'
 		&& gm->map.map[y][x] != 'S' && gm->map.map[y][x] != 'W');

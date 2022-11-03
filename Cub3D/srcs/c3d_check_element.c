@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 12:41:51 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/03 13:21:20 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/03 14:20:49 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,4 @@ void	c3d_check_element(t_gm *gm, char **av)
 		str = get_next_line(fd);
 	}
 	close(fd);
-	if (gm->map.map != NULL)
-		c3d_check_map(gm, 0, 0);
-	if (gm->ply.e_dir == NOTSET)
-		c3d_fail_exit("No player set in map");
 }
