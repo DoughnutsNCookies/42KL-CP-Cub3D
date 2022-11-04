@@ -6,7 +6,7 @@
 #    By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 10:52:13 by schuah            #+#    #+#              #
-#    Updated: 2022/11/04 12:22:46 by schuah           ###   ########.fr        #
+#    Updated: 2022/11/04 14:12:28 by schuah           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,9 @@ SRCS_FILES	=	c3d_main \
 				c3d_exit \
 				c3d_init \
 				c3d_get_map \
-				c3d_check_file \
 				c3d_check_map \
+				c3d_check_file \
+				c3d_user_input \
 				c3d_check_utils \
 				c3d_check_element \
 				temp
@@ -36,10 +37,6 @@ OBJS_DIR	=	objs/
 all:			
 				mkdir -p $(OBJS_DIR)
 				make libft
-				make $(NAME)
-
-bonus:			
-				mkdir -p $(OBJS_DIR)
 				make $(NAME)
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.c

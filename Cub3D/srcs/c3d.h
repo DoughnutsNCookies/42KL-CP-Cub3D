@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:57 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/04 13:59:04 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/04 14:04:02 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,6 +193,8 @@ int		c3d_fail_exit(char *msg, char *details);
 int		c3d_success_exit(void);
 
 void	c3d_hooks(t_gm *gm);
+
+int		c3d_user_input(int keycode, t_gm *gm);
 
 // Temp (TO DELETE)
 void	print_ll(t_list **list);
