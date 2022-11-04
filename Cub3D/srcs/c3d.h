@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:57 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/04 12:31:01 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/04 13:59:04 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define C3D_H
 
 # include "../libft/srcs/libft.h"
+# include <stdio.h>
 # include <mlx.h>
 
 /* Mac key codes */
@@ -31,14 +32,38 @@
 # define WIN_H		1280
 # define WIN_W		800
 
-/* Vector struct */
-typedef struct s_vct
+/**
+ * @brief Double vector struct
+ * 
+ * @param x X value
+ * @param y Y value
+ */
+typedef struct s_dvct
+{
+	double	x;
+	double	y;
+}	t_dvct;
+
+/**
+ * @brief Int vector struct
+ * 
+ * @param x X value
+ * @param y Y value
+ */
+typedef struct s_ivct
 {
 	int	x;
 	int	y;
-}	t_vct;
+}	t_ivct;
 
-/* RGB struct */
+/**
+ * @brief RGB struct
+ * 
+ * @param r red value
+ * @param g green value
+ * @param b blue value
+ * @param hex hex value converted using RGB
+ */
 typedef struct s_rgb
 {
 	unsigned int	r;
@@ -47,28 +72,58 @@ typedef struct s_rgb
 	int				hex;
 }	t_rgb;
 
-/* Image struct */
+/**
+ * @brief Image struct
+ * 
+ * @param ref Image reference
+ * @param size Image size
+ */
 typedef struct s_img
 {
 	void	*ref;
-	t_vct	size;
+	t_ivct	size;
 }	t_img;
 
-/* Window struct */
+/**
+ * @brief Window struct
+ * 
+ * @param ref Window reference
+ * @param frame Current frame
+ * @param size Image size
+ */
 typedef struct s_win
 {
 	void	*ref;
-	t_vct	size;
+	int		frame;
+	t_ivct	size;
 }	t_win;
 
-/* Door struct */
+/**
+ * @brief Door struct
+ * 
+ * @param pos Door position
+ * @param next Next node
+ */
 typedef struct s_door
 {
-	t_vct			pos;
+	t_ivct			pos;
 	struct s_door	*next;
 }	t_door;
 
-/* Map struct */
+/**
+ * @brief Map struct
+ * 
+ * @param c_rgb Ceiling RGB values
+ * @param f_rgb Floor RGB values
+ * @param n_img North wall texture
+ * @param e_img East wall texture
+ * @param s_img South wall texture
+ * @param w_img West wall texture
+ * @param d_img Door texture
+ * @param door Door linked list
+ * @param map Map array in 2D
+ * @param size Map size
+ */
 typedef struct s_map
 {
 	t_rgb	c_rgb;
@@ -80,10 +135,16 @@ typedef struct s_map
 	t_img	d_img;
 	t_list	*door;
 	char	**map;
-	t_vct	size;
+	t_ivct	size;
 }	t_map;
 
-/* Player struct */
+/**
+ * @brief Player struct
+ * 
+ * @param e_dir Direction player is facing at in enum
+ * @param dir Vector direction of where the player facing
+ * @param pos Position of the player on the map
+ */
 typedef struct s_ply
 {
 	enum
@@ -94,10 +155,18 @@ typedef struct s_ply
 		SOUTH,
 		WEST
 	}	e_dir;
-	t_vct	pos;
+	t_dvct	dir;
+	t_dvct	pos;
 }	t_ply;
 
-/* Gamemaster struct*/
+/**
+ * @brief Gamemaster struct
+ *
+ * @param mlx Main mlx reference
+ * @param win Window struct
+ * @param map Map struct
+ * @param ply Player struct
+ */
 typedef struct s_gm
 {
 	void	*mlx;

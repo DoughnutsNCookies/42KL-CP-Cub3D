@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 14:54:26 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/04 12:13:36 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/04 13:53:24 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	c3d_init_gm(t_gm *gm)
 {
 	gm->mlx = mlx_init();
 	gm->win.ref = mlx_new_window(gm->mlx, WIN_H, WIN_W, "cub3D");
+	gm->win.frame = 0;
 	gm->map.n_img.ref = NULL;
 	gm->map.e_img.ref = NULL;
 	gm->map.s_img.ref = NULL;

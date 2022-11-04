@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:54:17 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/04 12:12:14 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/04 13:40:50 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	print_dl(t_list **list)
 	while (node != NULL)
 	{
 		ft_printf("i: %d| x: %d\t| y: %d\t|\n", i++,
-			((t_vct *)node->content)->x, ((t_vct *)node->content)->y);
+			((t_ivct *)node->content)->x, ((t_ivct *)node->content)->y);
 		node = node->next;
 	}
 }
