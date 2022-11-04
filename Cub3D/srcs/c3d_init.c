@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 14:54:26 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/03 14:37:47 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/04 12:13:36 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	c3d_init_gm(t_gm *gm)
 	gm->map.s_img.ref = NULL;
 	gm->map.w_img.ref = NULL;
 	gm->map.d_img.ref = NULL;
+	gm->map.door = NULL;
 	gm->map.map = NULL;
 	gm->map.c_rgb.hex = -1;
 	gm->map.f_rgb.hex = -1;

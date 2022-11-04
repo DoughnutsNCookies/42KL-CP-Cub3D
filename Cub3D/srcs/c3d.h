@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:57 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/03 21:11:20 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/04 12:31:01 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ int		c3d_is_all_num(char *str1, char *str2, char *str3);
 void	c3d_trim_spaces(char *str, int len);
 char	*c3d_pad_spaces(t_gm *gm, char *str);
 
-int		c3d_fail_exit(char *str);
+int		c3d_fail_exit(char *msg, char *details);
 int		c3d_success_exit(void);
 
 void	c3d_hooks(t_gm *gm);

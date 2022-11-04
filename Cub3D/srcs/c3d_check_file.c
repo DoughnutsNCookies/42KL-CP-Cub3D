@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 14:11:28 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/03 21:05:17 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/04 12:33:35 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ static void	check_file_format(int ac, char **av)
 	int		errno;
 
 	if (ac < 2)
-		c3d_fail_exit("./cub3D [map.cub]");
+		c3d_fail_exit("./cub3D [map.cub]", NULL);
 	errno = 0;
 	if (ft_strncmp(&av[1][ft_strlen(av[1]) - 4], ".cub", 4) != 0)
-		c3d_fail_exit("Invalid file format");
+		c3d_fail_exit("Invalid file format", av[1]);
 }
 
 void	c3d_check_file(t_gm *gm, int ac, char **av)
@@ -30,6 +30,6 @@ void	c3d_check_file(t_gm *gm, int ac, char **av)
 	if (gm->map.map != NULL)
 		c3d_check_map(gm, 0, 0);
 	if (gm->ply.e_dir == NOTSET)
-		c3d_fail_exit("No player set in map");
+		c3d_fail_exit("No player set in map", NULL);
 	print_dl(&gm->map.door);
 }

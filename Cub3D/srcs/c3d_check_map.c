@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 21:36:13 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/03 21:03:12 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/04 12:35:00 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	get_ply_dir(t_gm *gm, int x, int y)
 		|| gm->map.map[y][x] == 'S' || gm->map.map[y][x] == 'W')
 	{
 		if (gm->ply.e_dir != NOTSET)
-			c3d_fail_exit("Duplicated player position in map");
+			c3d_fail_exit("Duplicated player position in map", NULL);
 		if (gm->map.map[y][x] == 'N')
 			gm->ply.e_dir = NORTH;
 		else if (gm->map.map[y][x] == 'E')
@@ -74,7 +74,7 @@ void	c3d_check_map(t_gm *gm, int x, int y)
 		error += check_square(gm, x, y + 1);
 		error += check_square(gm, x, y - 1);
 		if (error)
-			c3d_fail_exit("Map not surrounded by walls");
+			c3d_fail_exit("Map not surrounded by walls", NULL);
 	}
 	c3d_check_map(gm, x + 1, y);
 	if (x == 0)

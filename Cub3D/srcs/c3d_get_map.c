@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 14:59:18 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/03 20:13:00 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/04 12:39:08 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,9 @@ void	c3d_get_map(t_gm *gm, char *str, int fd)
 
 	if (c3d_map_contents_only(str) == 0)
 	{
-		free(str);
 		if (mapmode && str != NULL)
-			c3d_fail_exit("Invalid character in map");
+			c3d_fail_exit("Invalid character in map", str);
+		free(str);
 		return ;
 	}
 	c3d_all_elements_present(gm);
