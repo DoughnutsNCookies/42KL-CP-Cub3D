@@ -6,7 +6,7 @@
 #    By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 10:52:13 by schuah            #+#    #+#              #
-#    Updated: 2022/11/07 16:18:37 by schuah           ###   ########.fr        #
+#    Updated: 2022/11/07 17:45:49 by schuah           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRCS_FILES	=	c3d_main \
 				c3d_check_map \
 				c3d_check_file \
 				c3d_user_input \
+				c3d_image_utils \
 				c3d_check_utils \
 				c3d_check_element \
 				temp

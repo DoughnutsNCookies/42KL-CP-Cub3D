@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 14:54:26 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/07 14:00:58 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/07 17:34:19 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,7 @@ void	c3d_init_gm(t_gm *gm)
 	gm->ply.e_dir = NOTSET;
 	gm->ply.plane.x = 0;
 	gm->ply.plane.y = 0.66;
+	gm->map.main = ft_calloc(1, sizeof(t_img));
+	gm->map.mini = ft_calloc(1, sizeof(t_img));
+
 }

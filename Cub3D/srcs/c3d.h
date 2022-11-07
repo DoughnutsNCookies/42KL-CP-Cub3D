@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:57 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/07 17:06:25 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/07 17:46:02 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,19 @@ typedef struct s_rgb
  * @brief Image struct
  * 
  * @param ref Image reference
+ * @param addr Address of image
+ * @param bpp Bits per pixel of image
+ * @param sl Size line of image
+ * @param end Endian of image
  * @param size Image size
  */
 typedef struct s_img
 {
 	void	*ref;
+	char	*addr;
+	int		bpp;
+	int		sl;
+	int		end;
 	t_ivct	size;
 }	t_img;
 
@@ -144,28 +152,12 @@ typedef struct s_map
 	t_img	s_img;
 	t_img	w_img;
 	t_img	d_img;
+	t_img	*main;
+	t_img	*mini;
 	t_list	*door;
 	char	**map;
 	t_ivct	size;
 }	t_map;
-
-/**
- * @brief Minimap struct
- * 
- * @param ref Minimap image reference
- * @param addr Address of map Image
- * @param bpp Bits per pixel of map image
- * @param sl Size line of map image
- * @param end Endian of map image
- */
-typedef struct s_mini
-{
-	void	*ref;
-	char	*addr;
-	int		bpp;
-	int		sl;
-	int		end;
-}	t_mini;
 
 /**
  * @brief Player struct
@@ -203,7 +195,6 @@ typedef struct s_gm
 	t_win	win;
 	t_map	map;
 	t_ply	ply;
-	t_mini	*mini;
 }	t_gm;
 
 void	c3d_init_gm(t_gm *gm);
@@ -229,6 +220,8 @@ int		c3d_user_input(int keycode, t_gm *gm);
 
 int		c3d_display(t_gm *gm);
 void	c3d_display_minimap(t_gm *gm);
+
+void	c3d_draw_block(t_gm *gm, int x, int y, int color);
 
 // Temp (TO DELETE)
 void	print_ll(t_list **list);
