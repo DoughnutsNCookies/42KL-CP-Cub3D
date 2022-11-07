@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 21:36:13 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/04 13:49:28 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/07 13:59:00 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ static void	get_ply_dir(t_gm *gm, int x, int y)
 		if (gm->ply.e_dir != NOTSET)
 			c3d_fail_exit("Duplicated player position in map", NULL);
 		if (gm->map.map[y][x] == 'N')
-			set_dir(gm, NORTH, 1, 0);
+			set_dir(gm, NORTH, 0, 1);
 		else if (gm->map.map[y][x] == 'E')
-			set_dir(gm, EAST, 0, 1);
+			set_dir(gm, EAST, 1, 0);
 		else if (gm->map.map[y][x] == 'S')
 			set_dir(gm, SOUTH, 0, -1);
 		else if (gm->map.map[y][x] == 'W')
