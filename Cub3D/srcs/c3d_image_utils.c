@@ -6,17 +6,17 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 17:44:03 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/07 17:46:09 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/07 22:06:23 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "c3d.h"
 
-static void	change_color(t_gm *gm, int color, int pixel, char *addr)
+static void	change_color(t_gm *gm, unsigned int color, int pixel, char *addr)
 {
 	if (gm->map.main->end == 1)
 	{
-		addr[pixel + 0] = (color >> 24);
+		addr[pixel + 0] = (color >> 24) & 0xFF;
 		addr[pixel + 1] = (color >> 16) & 0xFF;
 		addr[pixel + 2] = (color >> 8) & 0xFF;
 		addr[pixel + 3] = (color) & 0xFF;
@@ -26,11 +26,11 @@ static void	change_color(t_gm *gm, int color, int pixel, char *addr)
 		addr[pixel + 0] = (color) & 0xFF;
 		addr[pixel + 1] = (color >> 8) & 0xFF;
 		addr[pixel + 2] = (color >> 16) & 0xFF;
-		addr[pixel + 3] = (color >> 24);
+		addr[pixel + 3] = (color >> 24) & 0xFF;
 	}
 }
 
-void	c3d_draw_block(t_gm *gm, int x, int y, int color)
+void	c3d_draw_block(t_gm *gm, int x, int y, unsigned int color)
 {
 	int	px;
 	int	py;
@@ -46,3 +46,8 @@ void	c3d_draw_block(t_gm *gm, int x, int y, int color)
 		}
 	}
 }
+
+// void	c3d_copy_image(t_img *dst, t_img *src, int x, int y)
+// {
+
+// }

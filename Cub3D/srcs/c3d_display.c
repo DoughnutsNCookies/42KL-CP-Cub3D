@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:48:13 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/07 14:56:25 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/07 21:58:05 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void	c3d_render(t_gm *gm)
 		if (draw_end >= WIN_H)
 			draw_end = WIN_H - 1;
 
-		int color = BLUE;
+		int color = GREEN;
 		if (side == 1)
 			color = color / 2;
 		draw_verline(gm, x, draw_start, draw_end, color);

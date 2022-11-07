@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:57 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/07 17:46:02 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/07 21:59:07 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,26 @@
 # define KEY_LEFT	123
 # define KEY_RIGHT	124
 # define EXIT_EVENT	17
+# define KD_EVENT	2
+# define KEY_PRESS	1
 # define EXIT_MASK	0
 
 /* Map settings */
 # define WIN_W		1280
 # define WIN_H		800
-# define MMAP_W		10
-# define MMAP_H		10
-# define MMAP_PX	16
+# define MMAP_W		15
+# define MMAP_H		15
+# define MMAP_PX	15
 
 /* Player prefs */
-# define PLY_MVSPD	32
+# define PLY_MVSPD	0.25
 
-# define BROWN		0x964B00
+# define RED		0xFF0000
+# define GREEN		0x00FF00
 # define BLUE		0x0000FF
-# define WHITE		0xFFFFFF
+# define TBROWN		0x80964B00
+# define TGREY		0x80808080
+# define TWHITE		0x80FFFFFF
 
 /**
  * @brief Double vector struct
@@ -221,7 +226,7 @@ int		c3d_user_input(int keycode, t_gm *gm);
 int		c3d_display(t_gm *gm);
 void	c3d_display_minimap(t_gm *gm);
 
-void	c3d_draw_block(t_gm *gm, int x, int y, int color);
+void	c3d_draw_block(t_gm *gm, int x, int y, unsigned int color);
 
 // Temp (TO DELETE)
 void	print_ll(t_list **list);
