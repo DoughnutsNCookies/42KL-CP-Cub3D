@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:57 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/07 21:59:07 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/08 12:37:51 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define KEY_A		0
 # define KEY_S		1
 # define KEY_D		2
+# define KEY_M		46
 # define KEY_LEFT	123
 # define KEY_RIGHT	124
 # define EXIT_EVENT	17
@@ -47,6 +48,7 @@
 # define TBROWN		0x80964B00
 # define TGREY		0x80808080
 # define TWHITE		0x80FFFFFF
+# define TBLACK		0x80000000
 
 /**
  * @brief Double vector struct
@@ -75,10 +77,10 @@ typedef struct s_ivct
 /**
  * @brief RGB struct
  * 
- * @param r red value
- * @param g green value
- * @param b blue value
- * @param hex hex value converted using RGB
+ * @param r Red value
+ * @param g Green value
+ * @param b Blue value
+ * @param hex Hex value converted using RGB
  */
 typedef struct s_rgb
 {
@@ -226,7 +228,8 @@ int		c3d_user_input(int keycode, t_gm *gm);
 int		c3d_display(t_gm *gm);
 void	c3d_display_minimap(t_gm *gm);
 
-void	c3d_draw_block(t_gm *gm, int x, int y, unsigned int color);
+void	c3d_color_block(t_gm *gm, t_ivct cur, unsigned int color);
+void	c3d_copy_pixel(t_gm *gm, int src_pixel, int x, int y);
 
 // Temp (TO DELETE)
 void	print_ll(t_list **list);

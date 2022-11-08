@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 17:44:03 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/07 22:06:23 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/08 12:34:38 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,24 +30,31 @@ static void	change_color(t_gm *gm, unsigned int color, int pixel, char *addr)
 	}
 }
 
-void	c3d_draw_block(t_gm *gm, int x, int y, unsigned int color)
+void	c3d_color_block(t_gm *gm, t_ivct cur, unsigned int color)
 {
-	int	px;
-	int	py;
+	t_dvct	px;
 
-	py = -1;
-	while (++py < MMAP_PX)
+	px.y = -1;
+	while (++px.y < MMAP_PX)
 	{
-		px = -1;
-		while (++px < MMAP_PX)
+		px.x = -1;
+		while (++px.x < MMAP_PX)
 		{
-			change_color(gm, color, (((y * MMAP_PX) + py) * gm->map.main->sl)
-				+ (((x * MMAP_PX) + px) * 4), gm->map.main->addr);
+			change_color(gm, color,
+				(((cur.y * MMAP_PX) + px.y) * gm->map.main->sl)
+				+ (((cur.x * MMAP_PX) + px.x) * 4), gm->map.main->addr);
 		}
 	}
 }
 
-// void	c3d_copy_image(t_img *dst, t_img *src, int x, int y)
-// {
-
-// }
+void	c3d_copy_pixel(t_gm *gm, int src_pixel, int x, int y)
+{
+	gm->map.mini->addr[(y * gm->map.mini->sl) + (x * 4) + 0]
+		= gm->map.main->addr[src_pixel + 0];
+	gm->map.mini->addr[(y * gm->map.mini->sl) + (x * 4) + 1]
+		= gm->map.main->addr[src_pixel + 1];
+	gm->map.mini->addr[(y * gm->map.mini->sl) + (x * 4) + 2]
+		= gm->map.main->addr[src_pixel + 2];
+	gm->map.mini->addr[(y * gm->map.mini->sl) + (x * 4) + 3]
+		= gm->map.main->addr[src_pixel + 3];
+}
