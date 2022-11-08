@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:57 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/08 12:37:51 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/08 19:02:33 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@
 # define MMAP_PX	15
 
 /* Player prefs */
-# define PLY_MVSPD	0.25
+# define PLY_MVSPD	0.125
+# define PLY_ROTSPD	0.0625
 
 # define RED		0xFF0000
 # define GREEN		0x00FF00
