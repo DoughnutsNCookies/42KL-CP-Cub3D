@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_user_input.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
+/*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 14:02:52 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/08 19:12:15 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/08 19:17:13 by edlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	c3d_user_input(int keycode, t_gm *gm)
 {
 	if (keycode == KEY_ESC)
 		c3d_success_exit();
-	mlx_clear_window(gm->mlx, gm->win.ref);
+	// mlx_clear_window(gm->mlx, gm->win.ref);
 	player_movement(gm, keycode);
 	system_command(gm, keycode);
 	c3d_display_minimap(gm);
