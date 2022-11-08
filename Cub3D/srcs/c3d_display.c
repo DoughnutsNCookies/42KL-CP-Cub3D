@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_display.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
+/*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:48:13 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/08 11:59:55 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/08 18:04:59 by edlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ void	c3d_render(t_gm *gm)
 	int	x;
 
 	x = -1;
-	while (++x <= WIN_W)
+	while (++x < WIN_W)
 	{
-		double camera_x = 2 * x / (double)WIN_W - 1;
-		double ray_dir_x = gm->ply.dir.x + gm->ply.plane.x * camera_x;
-		double ray_dir_y = gm->ply.dir.y + gm->ply.plane.y * camera_x;
+		double cameraX = 2 * x / (double)WIN_W - 1;
+		double rayDirX = gm->ply.dir.x + gm->ply.plane.x * cameraX;
+		double rayDirY = gm->ply.dir.y + gm->ply.plane.y * cameraX;
 
 		int map_x = (int)gm->ply.pos.x;
 		int map_y = (int)gm->ply.pos.y;
@@ -40,12 +40,8 @@ void	c3d_render(t_gm *gm)
 		double side_dist_x;
 		double side_dist_y;
 
-		double delta_dist_x = fabs(1 / ray_dir_x);
-		double delta_dist_y = fabs(1 / ray_dir_y);
-		if (ray_dir_x == 0)
-			delta_dist_x = 1e30;
-		if (ray_dir_y == 0)
-			delta_dist_y = 1230;
+		double delta_dist_x = (rayDirX == 0) ? 1e30 : fabs(1 / rayDirX);
+		double delta_dist_y = (rayDirY == 0) ? 1e30 : fabs(1 / rayDirY);
 
 		double perp_wall_dist;
 
@@ -55,7 +51,7 @@ void	c3d_render(t_gm *gm)
 		int	hit = 0;
 		int	side;
 
-		if (ray_dir_x < 0)
+		if (rayDirX < 0)
 		{
 			step_x = -1;
 			side_dist_x = (gm->ply.pos.x - map_x) * delta_dist_x;
@@ -65,7 +61,7 @@ void	c3d_render(t_gm *gm)
 			step_x = 1;
 			side_dist_x = (map_x + 1.0 - gm->ply.pos.x) * delta_dist_x;
 		}
-		if (ray_dir_y < 0)
+		if (rayDirY < 0)
 		{
 			step_y = -1;
 			side_dist_y = (gm->ply.pos.y - map_y) * delta_dist_y;
@@ -110,6 +106,14 @@ void	c3d_render(t_gm *gm)
 			draw_end = WIN_H - 1;
 
 		int color = GREEN;
+		switch(gm->map.map[map_y][map_x])
+		{
+			case 1:  color = RED;  break; //red
+			case 2:  color = GREEN;  break; //green
+			case 3:  color = BLUE;   break; //blue
+			case 4:  color = TWHITE;  break; //white
+			default: color = TBROWN; break; //yellow
+		}
 		if (side == 1)
 			color = color / 2;
 		draw_verline(gm, x, draw_start, draw_end, color);
@@ -118,7 +122,7 @@ void	c3d_render(t_gm *gm)
 
 int	c3d_display(t_gm *gm)
 {
-	// c3d_render(gm);
+	c3d_render(gm);
 	c3d_display_minimap(gm);
 	return (0);
 }
