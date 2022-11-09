@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 16:16:44 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/08 12:36:35 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/09 13:17:53 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	c3d_fail_exit(char *msg, char *details)
 
 int	c3d_success_exit(void)
 {
-	ft_printf("Thanks for playing!\n");
+	printf("Thanks for playing!\n");
 	// system("leaks -q cub3D");
 	exit(0);
 	return (0);

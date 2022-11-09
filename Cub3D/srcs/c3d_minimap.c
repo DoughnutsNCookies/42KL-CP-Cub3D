@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_minimap.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:52:43 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/08 18:28:37 by edlim            ###   ########.fr       */
+/*   Updated: 2022/11/09 15:20:06 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ static void	create_map(t_gm *gm)
 		{
 			if (gm->map.map[cur.y][cur.x] == '1')
 				c3d_color_block(gm, cur, TWHITE);
-			else if (gm->map.map[cur.y][cur.x] == '0')
-				c3d_color_block(gm, cur, TGREY);
+			else if (gm->map.map[cur.y][cur.x] == ' ')
+				c3d_color_block(gm, cur, TBLACK);
 			else if (gm->map.map[cur.y][cur.x] == 'D')
 				c3d_color_block(gm, cur, TBROWN);
 			else
-				c3d_color_block(gm, cur, TBLACK);
+				c3d_color_block(gm, cur, TGREY);
 		}
 	}
 }

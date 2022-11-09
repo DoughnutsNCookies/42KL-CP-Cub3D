@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_display.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:48:13 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/09 15:43:52 by edlim            ###   ########.fr       */
+/*   Updated: 2022/11/09 17:14:52 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	draw_verline(t_gm *gm, int i, int draw_start, int draw_end, int colo
 	}
 }
 
-static void	drawBuffer(t_gm *gm, int i, int draw_start, int draw_end)
+void	drawBuffer(t_gm *gm, int i, int draw_start, int draw_end)
 {
 	// static int	test = 0;
 	// if (test == 0)
@@ -165,15 +165,10 @@ void	c3d_render(t_gm *gm)
 
 int	c3d_display(t_gm *gm)
 {
-<<<<<<< HEAD
-=======
 	if (gm->win.mouse == 0)
 		c3d_mouse_control(gm);
-	c3d_render(gm);
->>>>>>> 0501197f37460fc9167cf3fbae045e6c97f8f365
 	c3d_display_minimap(gm);
 	c3d_render(gm);
-	printf("Hi\n");
 	// mlx_put_image_to_window(gm->mlx, gm->win.ref, gm->map.n_img.ref,
 	// 	500, 500);
 	return (0);
