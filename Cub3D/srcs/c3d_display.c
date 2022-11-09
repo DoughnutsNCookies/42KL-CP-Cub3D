@@ -6,7 +6,7 @@
 /*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:48:13 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/08 19:20:22 by edlim            ###   ########.fr       */
+/*   Updated: 2022/11/08 23:18:56 by edlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,22 @@ static void	draw_verline(t_gm *gm, int i, int draw_start, int draw_end, int colo
 		// mlx_put_image_to_window(gm->mlx, gm->win.ref, gm->map.n_img.ref,
 			// i, draw_start);
 		mlx_pixel_put(gm->mlx, gm->win.ref, i, draw_start, color);
+		draw_start++;
+	}
+}
+
+static void	drawBuffer(t_gm *gm, int i, int draw_start, int draw_end)
+{
+	// static int	test = 0;
+	// if (test == 0)
+	// {
+		// printf("Hello i is: %d\n", i);
+		// printf("And start is: %d\n", draw_start);
+	while (draw_start < draw_end)
+	{
+		mlx_put_image_to_window(gm->mlx, gm->win.ref, gm->map.n_img.ref,
+			i, draw_start);
+		// test++;
 		draw_start++;
 	}
 }
@@ -105,6 +121,7 @@ void	c3d_render(t_gm *gm)
 		if (draw_end >= WIN_H)
 			draw_end = WIN_H - 1;
 
+		// CODE HERE IS FOR PIXEL TEXTURE
 		int color = GREEN;
 		switch(gm->map.map[map_y][map_x])
 		{
@@ -117,12 +134,41 @@ void	c3d_render(t_gm *gm)
 		if (side == 1)
 			color = color / 2;
 		draw_verline(gm, x, draw_start, draw_end, color);
+		// drawBuffer(gm, x, draw_start, draw_end);
+
+		//Code here is for sprite texture
+		// int	texNum = gm->map.map[map_y][map_x] - 1;
+		// double	wallX;
+		// if (side == 0)
+		// 	wallX = gm->ply.pos.y + perp_wall_dist * rayDirY;
+		// else
+		// 	wallX = gm->ply.pos.x + perp_wall_dist * rayDirX;
+		// wallX -= floor((wallX));
+		// int	texX = (int)(wallX * (double)texWidth);
+		// if (side == 0 && rayDirX > 0)
+		// 	texX = texWidth - texX - 1;
+		// if (side == 1 && rayDirY < 0)
+		// 	texX = texWidth - texX - 1;
+		
+		// double step = 1.0 * texHeight / line_height;
+		// double texPos = (draw_start - WIN_H / 2 + line_height / 2) * step;
+		// int y = draw_start;
+		// while (y < draw_end)
+		// {
+		// 	// int texY = (int)texPos & (texHeight - 1);
+		// 	texPos += step;
+		// 	y++;
+		// }
+		// drawBuffer(gm, x, draw_start, draw_end);
 	}
 }
 
 int	c3d_display(t_gm *gm)
 {
-	c3d_render(gm);
 	c3d_display_minimap(gm);
+	c3d_render(gm);
+	printf("Hi\n");
+	// mlx_put_image_to_window(gm->mlx, gm->win.ref, gm->map.n_img.ref,
+	// 	500, 500);
 	return (0);
 }
