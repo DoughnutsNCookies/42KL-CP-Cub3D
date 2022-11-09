@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:57 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/09 17:26:03 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/09 17:37:22 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@
 # define MMAP_W		15
 # define MMAP_H		15
 # define MMAP_PX	15
-# define texWidth	64
-# define texHeight	64
+# define TEXT_W		64
+# define TEXT_H		64
 
 /* Player prefs */
 # define PLY_MVSPD	0.25

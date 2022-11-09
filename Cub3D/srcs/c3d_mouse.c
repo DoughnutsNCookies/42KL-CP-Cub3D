@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:29:08 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/09 17:30:23 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/09 17:39:09 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	c3d_mouse_control(t_gm *gm)
 	double	angle;
 
 	mlx_mouse_get_pos(gm->win.ref, &ms.x, &ms.y);
+	printf("%d\n", ms.x);
 	if (ms.x >= WIN_W - 1)
 		mlx_mouse_move(gm->win.ref, 0, WIN_H / 2);
 	else if (ms.x <= 0)

@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 12:07:25 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/09 12:13:42 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/09 17:48:52 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ void	c3d_player_view(t_gm *gm, int keycode)
 		dir_x = gm->ply.dir.x;
 		gm->ply.dir.x = gm->ply.dir.x * cos(rot_spd)
 			- gm->ply.dir.y * sin(rot_spd);
-		gm->ply.dir.y = dir_x * sin(rot_spd)
-			+ gm->ply.dir.y * cos(rot_spd);
+		gm->ply.dir.y = gm->ply.dir.y * cos(rot_spd)
+			+ dir_x * sin(rot_spd);
 		plane_x = gm->ply.plane.x;
 		gm->ply.plane.x = gm->ply.plane.x * cos(rot_spd)
 			- gm->ply.plane.y * sin(rot_spd);
-		gm->ply.plane.y = dir_x * sin(rot_spd)
-			+ gm->ply.plane.y * cos(rot_spd);
+		gm->ply.plane.y = gm->ply.plane.y * cos(rot_spd)
+			+ plane_x * sin(rot_spd);
 	}
 }
