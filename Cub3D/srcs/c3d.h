@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:57 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/09 16:23:42 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/09 17:26:03 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,8 @@
 # define EXIT_MASK	0
 
 /* Map settings */
-// # define WIN_W		1280
-// # define WIN_H		800
-# define WIN_W		640
-# define WIN_H		400
+# define WIN_W		1280
+# define WIN_H		800
 # define MMAP_W		15
 # define MMAP_H		15
 # define MMAP_PX	15
