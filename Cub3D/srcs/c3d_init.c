@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 14:54:26 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/09 17:48:35 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/09 21:29:29 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static void	init_map(t_gm *gm)
 	gm->map.f_rgb.hex = -1;
 	gm->map.main = ft_calloc(1, sizeof(t_img));
 	gm->map.mini = ft_calloc(1, sizeof(t_img));
+	gm->map.map_in = NULL;
 }
 
 static void	init_ply(t_gm *gm)

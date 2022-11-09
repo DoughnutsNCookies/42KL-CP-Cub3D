@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 14:30:19 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/09 17:47:23 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/09 19:37:43 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ static int	c3d_user_input(int keycode, t_gm *gm)
 {
 	if (keycode == KEY_ESC)
 		c3d_success_exit();
-	c3d_player_movement(gm, keycode);
+	c3d_player_vertical_movement(gm, keycode);
+	c3d_player_horizontal_movement(gm, keycode);
 	c3d_player_view(gm, keycode);
 	c3d_mouse_state(gm, keycode);
 	c3d_display_minimap(gm);
