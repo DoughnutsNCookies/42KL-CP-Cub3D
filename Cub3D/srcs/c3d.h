@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   c3d.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
+/*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:57 by schuah            #+#    #+#             */
+<<<<<<< HEAD
+/*   Updated: 2022/11/08 21:51:16 by edlim            ###   ########.fr       */
+=======
 /*   Updated: 2022/11/09 12:13:25 by schuah           ###   ########.fr       */
+>>>>>>> 0501197f37460fc9167cf3fbae045e6c97f8f365
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +42,8 @@
 # define MMAP_W		15
 # define MMAP_H		15
 # define MMAP_PX	15
+# define texWidth	64
+# define texHeight	64
 
 /* Player prefs */
 # define PLY_MVSPD	0.25
