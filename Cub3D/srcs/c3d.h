@@ -6,7 +6,11 @@
 /*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:57 by schuah            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2022/11/08 21:51:16 by edlim            ###   ########.fr       */
+=======
+/*   Updated: 2022/11/09 12:13:25 by schuah           ###   ########.fr       */
+>>>>>>> 0501197f37460fc9167cf3fbae045e6c97f8f365
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +18,8 @@
 # define C3D_H
 
 # include "../libft/srcs/libft.h"
+# include "../mlx/mlx.h"
 # include <stdio.h>
-# include <mlx.h>
 # include <math.h>
 
 /* Mac key codes */
@@ -45,6 +49,7 @@
 # define PLY_MVSPD	0.25
 # define PLY_ROTSPD	0.0625
 
+/* Self defined */
 # define RED		0xFF0000
 # define GREEN		0x00FF00
 # define BLUE		0x0000FF
@@ -52,6 +57,7 @@
 # define TGREY		0x80808080
 # define TWHITE		0x80FFFFFF
 # define TBLACK		0x80000000
+# define PI			3.14159265359
 
 /**
  * @brief Double vector struct
@@ -124,6 +130,7 @@ typedef struct s_win
 {
 	void	*ref;
 	int		frame;
+	int		mouse;
 	t_ivct	size;
 }	t_win;
 
@@ -187,6 +194,7 @@ typedef struct s_ply
 		WEST
 	}	e_dir;
 	t_dvct	dir;
+	t_dvct	c_dir;
 	t_dvct	pos;
 	t_dvct	plane;
 }	t_ply;
@@ -226,13 +234,16 @@ int		c3d_success_exit(void);
 
 void	c3d_hooks(t_gm *gm);
 
-int		c3d_user_input(int keycode, t_gm *gm);
-
 int		c3d_display(t_gm *gm);
 void	c3d_display_minimap(t_gm *gm);
 
 void	c3d_color_block(t_gm *gm, t_ivct cur, unsigned int color);
 void	c3d_copy_pixel(t_gm *gm, int src_pixel, int x, int y);
+
+void	c3d_player_movement(t_gm *gm, int keycode);
+void	c3d_player_view(t_gm *gm, int keycode);
+void	c3d_mouse_state(t_gm *gm, int keycode);
+void	c3d_mouse_control(t_gm *gm);
 
 // Temp (TO DELETE)
 void	print_ll(t_list **list);

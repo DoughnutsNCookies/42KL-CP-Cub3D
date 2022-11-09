@@ -6,7 +6,7 @@
 /*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:48:13 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/08 23:18:56 by edlim            ###   ########.fr       */
+/*   Updated: 2022/11/09 15:43:52 by edlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,6 +165,12 @@ void	c3d_render(t_gm *gm)
 
 int	c3d_display(t_gm *gm)
 {
+<<<<<<< HEAD
+=======
+	if (gm->win.mouse == 0)
+		c3d_mouse_control(gm);
+	c3d_render(gm);
+>>>>>>> 0501197f37460fc9167cf3fbae045e6c97f8f365
 	c3d_display_minimap(gm);
 	c3d_render(gm);
 	printf("Hi\n");
