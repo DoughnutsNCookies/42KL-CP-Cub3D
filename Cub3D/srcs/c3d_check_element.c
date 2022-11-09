@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_check_element.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
+/*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 12:41:51 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/04 13:40:34 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/09 18:08:09 by edlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	set_texture(t_img *img, void *mlx, char **split)
 	if (img->ref != NULL)
 		c3d_fail_exit("Duplicated texture found", split[0]);
 	img->ref = mlx_xpm_file_to_image(mlx, split[1], &img->size.x, &img->size.y);
+	img->addr = mlx_get_data_addr(img->ref, &img->bpp, &img->sl, &img->end);
 	if (img->ref == NULL || split[2] != NULL)
 		c3d_fail_exit("Invalid path set for texture", split[0]);
 }

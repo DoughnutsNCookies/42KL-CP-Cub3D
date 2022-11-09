@@ -3,20 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_display.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
+/*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:48:13 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/09 17:29:07 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/09 21:31:27 by edlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "c3d.h"
+
+static void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = data->addr + (y * data->sl + x * (data->bpp / 8));
+	*(unsigned int*)dst = color;
+}
 
 static void	draw_verline(t_gm *gm, int i, int draw_start, int draw_end, int color)
 {
 	while (draw_start < draw_end)
 	{
 		mlx_pixel_put(gm->mlx, gm->win.ref, i, draw_start, color);
+		draw_start++;
+	}
+}
+
+static void	draw_verline2(t_gm *gm, int i, int draw_start, int draw_end, int color)
+{
+	while (draw_start < draw_end)
+	{
+		my_mlx_pixel_put(&gm->map.test, i, draw_start, color);
 		draw_start++;
 	}
 }
@@ -115,7 +132,11 @@ void	c3d_render(t_gm *gm)
 		}
 		if (side == 1)
 			color = color / 2;
-		draw_verline(gm, x, draw_start, draw_end, color);
+		// char	*dst;
+
+		// dst = gm->map.n_img.addr + (5 * gm->map.n_img.sl + 5 * (gm->map.n_img.bpp / 8));
+		// *(unsigned int*)dst = color;
+		draw_verline2(gm, x, draw_start, draw_end, color);
 		// drawBuffer(gm, x, draw_start, draw_end);
 
 		//Code here is for sprite texture
@@ -144,15 +165,15 @@ void	c3d_render(t_gm *gm)
 		// 	texPos += step;
 		// 	y++;
 		// }
-		// draw_verline(gm, x, draw_start, draw_end, color);
 	}
+	mlx_put_image_to_window(gm->mlx, gm->win.ref, gm->map.test.ref, 0, 0);
 }
 
 int	c3d_display(t_gm *gm)
 {
 	if (gm->win.mouse == 0)
 		c3d_mouse_control(gm);
-	c3d_display_minimap(gm);
+	// c3d_display_minimap(gm);
 	c3d_render(gm);
 	return (0);
 }
