@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_display.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:48:13 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/08 19:20:22 by edlim            ###   ########.fr       */
+/*   Updated: 2022/11/09 12:22:17 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,8 @@ void	c3d_render(t_gm *gm)
 
 int	c3d_display(t_gm *gm)
 {
+	if (gm->win.mouse == 0)
+		c3d_mouse_control(gm);
 	c3d_render(gm);
 	c3d_display_minimap(gm);
 	return (0);

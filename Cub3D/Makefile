@@ -6,35 +6,37 @@
 #    By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 10:52:13 by schuah            #+#    #+#              #
-#    Updated: 2022/11/08 12:36:04 by schuah           ###   ########.fr        #
+#    Updated: 2022/11/09 12:09:01 by schuah           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	cub3D
-LIBFT		=	libft.a
+LIBFT		=	libft/libft.a
+MLX			=	mlx/libmlx.a
 CC			=	gcc
 RM			=	rm -f
 CFLAGS		=	-Wall -Wextra -Werror -Imlx
-# CFLAGS		+=	-fsanitize=address -g3
+CFLAGS		+=	-fsanitize=address -g3
 MLXFLAGS	=	-L /usr/local/lib -lmlx -framework OpenGL -framework AppKit
 SRCS_FILES	=	c3d_main \
 				c3d_hook \
 				c3d_exit \
 				c3d_init \
+				c3d_mouse \
 				c3d_display \
 				c3d_get_map \
 				c3d_minimap \
 				c3d_check_map \
 				c3d_check_file \
-				c3d_user_input \
 				c3d_image_utils \
 				c3d_check_utils \
 				c3d_check_element \
+				c3d_player_control \
 				temp
 SRCS		= 	$(addprefix $(SRCS_DIR), $(addsuffix .c, $(SRCS_FILES)))
 OBJS		= 	$(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRCS_FILES)))
 SRCS_DIR	=	srcs/
-LIBFT_DIR	=	libft
+LIBFT_DIR	=	libft/
 OBJS_DIR	=	objs/
 
 all:			
@@ -46,7 +48,7 @@ $(OBJS_DIR)%.o: $(SRCS_DIR)%.c
 				$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME):		$(OBJS)
-				$(CC) $(CFLAGS) $(LIBFT_DIR)/$(LIBFT) $(OBJS) $(MLXFLAGS) -o $(NAME)
+				$(CC) $(CFLAGS) $(LIBFT) $(MLX) $(OBJS) $(MLXFLAGS) -o $(NAME)
 
 libft:
 				make -C $(LIBFT_DIR)
