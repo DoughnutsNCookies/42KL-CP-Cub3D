@@ -6,7 +6,7 @@
 /*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:48:13 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/09 15:43:52 by edlim            ###   ########.fr       */
+/*   Updated: 2022/11/09 17:18:10 by edlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,7 @@ static void	draw_verline(t_gm *gm, int i, int draw_start, int draw_end, int colo
 {
 	while (draw_start < draw_end)
 	{
-		// mlx_put_image_to_window(gm->mlx, gm->win.ref, gm->map.n_img.ref,
-			// i, draw_start);
 		mlx_pixel_put(gm->mlx, gm->win.ref, i, draw_start, color);
-		draw_start++;
-	}
-}
-
-static void	drawBuffer(t_gm *gm, int i, int draw_start, int draw_end)
-{
-	// static int	test = 0;
-	// if (test == 0)
-	// {
-		// printf("Hello i is: %d\n", i);
-		// printf("And start is: %d\n", draw_start);
-	while (draw_start < draw_end)
-	{
-		mlx_put_image_to_window(gm->mlx, gm->win.ref, gm->map.n_img.ref,
-			i, draw_start);
-		// test++;
 		draw_start++;
 	}
 }
@@ -137,6 +119,8 @@ void	c3d_render(t_gm *gm)
 		// drawBuffer(gm, x, draw_start, draw_end);
 
 		//Code here is for sprite texture
+		// unsigned int buffer[WIN_H][WIN_W];
+		// unsigned int color;
 		// int	texNum = gm->map.map[map_y][map_x] - 1;
 		// double	wallX;
 		// if (side == 0)
@@ -155,26 +139,18 @@ void	c3d_render(t_gm *gm)
 		// int y = draw_start;
 		// while (y < draw_end)
 		// {
-		// 	// int texY = (int)texPos & (texHeight - 1);
+		// 	int texY = (int)texPos & (texHeight - 1);
+		// 	color = RED;
 		// 	texPos += step;
 		// 	y++;
 		// }
-		// drawBuffer(gm, x, draw_start, draw_end);
+		// draw_verline(gm, x, draw_start, draw_end, color);
 	}
 }
 
 int	c3d_display(t_gm *gm)
 {
-<<<<<<< HEAD
-=======
-	if (gm->win.mouse == 0)
-		c3d_mouse_control(gm);
-	c3d_render(gm);
->>>>>>> 0501197f37460fc9167cf3fbae045e6c97f8f365
 	c3d_display_minimap(gm);
 	c3d_render(gm);
-	printf("Hi\n");
-	// mlx_put_image_to_window(gm->mlx, gm->win.ref, gm->map.n_img.ref,
-	// 	500, 500);
 	return (0);
 }
