@@ -3,14 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: edlim <edlim@student.42.fr>                +#+  +:+       +#+         #
+#    By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 10:52:13 by schuah            #+#    #+#              #
-<<<<<<< HEAD
-#    Updated: 2022/11/08 23:21:18 by edlim            ###   ########.fr        #
-=======
-#    Updated: 2022/11/09 12:09:01 by schuah           ###   ########.fr        #
->>>>>>> 0501197f37460fc9167cf3fbae045e6c97f8f365
+#    Updated: 2022/11/09 16:23:54 by schuah           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +27,7 @@ SRCS_FILES	=	c3d_main \
 				c3d_get_map \
 				c3d_minimap \
 				c3d_check_map \
+				c3d_orient_map \
 				c3d_check_file \
 				c3d_image_utils \
 				c3d_check_utils \
