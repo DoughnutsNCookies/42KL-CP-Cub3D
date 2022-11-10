@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_minimap.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
+/*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:52:43 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/09 15:20:06 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/10 21:21:54 by edlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ void	c3d_display_minimap(t_gm *gm)
 {
 	create_map(gm);
 	create_minimap(gm);
-	mlx_clear_window(gm->mlx, gm->win.ref);
 	mlx_put_image_to_window(gm->mlx, gm->win.ref, gm->map.mini->ref, 0, 0);
 	draw_player(gm);
 }

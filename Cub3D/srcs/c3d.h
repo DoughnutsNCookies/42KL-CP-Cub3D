@@ -6,7 +6,7 @@
 /*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:57 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/09 17:46:50 by edlim            ###   ########.fr       */
+/*   Updated: 2022/11/10 14:48:54 by edlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,7 +174,7 @@ typedef struct s_map
 	char	**map;
 	char	**map_in;
 	t_ivct	size;
-	t_img	test;
+	t_img	imgw;
 }	t_map;
 
 /**
