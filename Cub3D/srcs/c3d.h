@@ -6,7 +6,7 @@
 /*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:57 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/10 14:48:54 by edlim            ###   ########.fr       */
+/*   Updated: 2022/11/10 21:43:14 by edlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@
 # define MMAP_W		15
 # define MMAP_H		15
 # define MMAP_PX	15
-# define texWidth	64
-# define texHeight	64
+# define TEXT_W		64
+# define TEXT_H		64
 
 /* Player prefs */
 # define PLY_MVSPD	0.25
@@ -54,6 +54,7 @@
 # define TWHITE		0x80FFFFFF
 # define TBLACK		0x80000000
 # define PI			3.14159265359
+# define RAD_90DEG	1.57079632679
 
 /**
  * @brief Double vector struct
@@ -245,7 +246,8 @@ void	c3d_display_minimap(t_gm *gm);
 void	c3d_color_block(t_gm *gm, t_ivct cur, unsigned int color);
 void	c3d_copy_pixel(t_gm *gm, int src_pixel, int x, int y);
 
-void	c3d_player_movement(t_gm *gm, int keycode);
+void	c3d_player_vertical_movement(t_gm *gm, int keycode);
+void	c3d_player_horizontal_movement(t_gm *gm, int keycode);
 void	c3d_player_view(t_gm *gm, int keycode);
 void	c3d_mouse_state(t_gm *gm, int keycode);
 void	c3d_mouse_control(t_gm *gm);
