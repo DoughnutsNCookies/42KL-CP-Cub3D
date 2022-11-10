@@ -6,11 +6,7 @@
 /*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 14:54:26 by schuah            #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2022/11/10 14:48:54 by edlim            ###   ########.fr       */
-=======
-/*   Updated: 2022/11/09 21:29:29 by schuah           ###   ########.fr       */
->>>>>>> main
+/*   Updated: 2022/11/10 21:44:51 by edlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +34,10 @@ static void	init_map(t_gm *gm)
 	gm->map.f_rgb.hex = -1;
 	gm->map.main = ft_calloc(1, sizeof(t_img));
 	gm->map.mini = ft_calloc(1, sizeof(t_img));
-<<<<<<< HEAD
 	gm->map.imgw.ref = mlx_new_image(gm->mlx, WIN_W, WIN_H);
 	gm->map.imgw.addr = mlx_get_data_addr(gm->map.imgw.ref, &gm->map.imgw.bpp,
 		&gm->map.imgw.sl, &gm->map.imgw.end);
-=======
 	gm->map.map_in = NULL;
->>>>>>> main
 }
 
 static void	init_ply(t_gm *gm)
