@@ -6,7 +6,7 @@
 /*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:57 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/10 21:43:14 by edlim            ###   ########.fr       */
+/*   Updated: 2022/11/12 16:40:49 by edlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,6 +203,24 @@ typedef struct s_ply
 	t_dvct	plane;
 }	t_ply;
 
+typedef struct s_render
+{
+	double	camera_x;
+	double	raydir_x;
+	double	raydir_y;
+	int		map_x;
+	int		map_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	double	perp_wall_dist;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
+}	t_render;
+
 /**
  * @brief Gamemaster struct
  *
@@ -213,10 +231,11 @@ typedef struct s_ply
  */
 typedef struct s_gm
 {
-	void	*mlx;
-	t_win	win;
-	t_map	map;
-	t_ply	ply;
+	void		*mlx;
+	t_win		win;
+	t_map		map;
+	t_ply		ply;
+	t_render	render;
 }	t_gm;
 
 void	c3d_init_gm(t_gm *gm);
