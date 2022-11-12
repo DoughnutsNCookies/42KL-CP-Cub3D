@@ -170,13 +170,16 @@ int	c3d_display(t_gm *gm)
 	int	k;
 
 	i = 0;
-	//Sets img window to black so can turn around
+	//Sets img window half ceiling, half floor
 	while (i < WIN_W)
 	{
 		k = 0;
 		while (k < WIN_H)
 		{
-			my_mlx_pixel_put(&gm->map.imgw, i, k, TBLACK);
+			if (k < WIN_H / 2)
+				my_mlx_pixel_put(&gm->map.imgw, i, k, gm->map.c_rgb.hex);
+			else
+				my_mlx_pixel_put(&gm->map.imgw, i, k, gm->map.f_rgb.hex);
 			k++;
 		}
 		i++;

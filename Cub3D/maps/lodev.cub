@@ -1,7 +1,7 @@
-NO ./sprites/north.xpm
-EA ./sprites/east.xpm
-SO ./sprites/south.xpm
-WE ./sprites/west.xpm
+NO ./sprites/jng.xpm
+EA ./sprites/joel.xpm
+SO ./sprites/amogus.xpm
+WE ./sprites/openthygates.xpm
 
 C 111,10,0				
 F 1,1,1     
