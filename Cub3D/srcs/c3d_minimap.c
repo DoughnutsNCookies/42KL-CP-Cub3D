@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:42:06 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/14 13:42:25 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/14 13:47:04 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,10 +103,8 @@ static void	draw_player(t_gm *gm)
 
 void	c3d_display_minimap(t_gm *gm)
 {
-	mlx_clear_window(gm->mlx, gm->win.ref);
 	create_map(gm);
 	create_minimap(gm);
 	draw_player(gm);
 	mlx_put_image_to_window(gm->mlx, gm->win.ref, gm->map.mini->ref, 0, 0);
-	return ;
 }
