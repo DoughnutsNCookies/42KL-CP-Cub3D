@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 16:57:57 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/14 13:27:12 by schuah           ###   ########.fr       */
+/*   Created: 2022/11/14 13:41:54 by schuah            #+#    #+#             */
+/*   Updated: 2022/11/14 13:41:57 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,6 +177,7 @@ typedef struct s_map
 	char	**map;
 	char	**map_in;
 	t_ivct	size;
+	t_img	imgw;
 }	t_map;
 
 /**
@@ -204,6 +205,24 @@ typedef struct s_ply
 	t_dvct	plane;
 }	t_ply;
 
+typedef struct s_render
+{
+	double	camera_x;
+	double	raydir_x;
+	double	raydir_y;
+	int		map_x;
+	int		map_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	double	perp_wall_dist;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
+}	t_render;
+
 /**
  * @brief Gamemaster struct
  *
@@ -214,10 +233,11 @@ typedef struct s_ply
  */
 typedef struct s_gm
 {
-	void	*mlx;
-	t_win	win;
-	t_map	map;
-	t_ply	ply;
+	void		*mlx;
+	t_win		win;
+	t_map		map;
+	t_ply		ply;
+	t_render	render;
 }	t_gm;
 
 void	c3d_init_gm(t_gm *gm);
