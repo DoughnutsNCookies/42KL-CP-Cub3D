@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:57:57 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/09 20:57:05 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/14 13:27:12 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@
 /* Player prefs */
 # define PLY_MVSPD	0.25
 # define PLY_ROTSPD	0.0625
+# define PLY_NEGCOL	0.5
+# define PLY_POSCOL	0.25
 
 /* Self defined */
 # define RED		0xFF0000

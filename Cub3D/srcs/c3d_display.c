@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:48:13 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/09 17:47:17 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/14 13:29:28 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,6 @@ int	c3d_display(t_gm *gm)
 	if (gm->win.mouse == 0)
 		c3d_mouse_control(gm);
 	c3d_display_minimap(gm);
-	c3d_render(gm);
+	// c3d_render(gm);
 	return (0);
 }
