@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:48:13 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/17 20:47:25 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/17 21:14:14 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,16 +117,16 @@ void	c3d_render(t_gm *gm)
 		if (gm->render.side == 0)
 		{
 			if (gm->render.step_x == 1)
-				curimg = &gm->map.w_img;
-			else
 				curimg = &gm->map.e_img;
+			else
+				curimg = &gm->map.w_img;
 		}
 		else
 		{
 			if (gm->render.step_y == 1)
-				curimg = &gm->map.s_img;
-			else
 				curimg = &gm->map.n_img;
+			else
+				curimg = &gm->map.s_img;
 		}
 		//calculate value of wallX
 		double wallX; //where exactly the wall was hit
