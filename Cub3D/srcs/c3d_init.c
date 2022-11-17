@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
+/*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 14:54:26 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/14 13:54:33 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/17 13:21:28 by edlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	init_ply(t_gm *gm)
 	gm->ply.e_dir = NOTSET;
 	gm->ply.plane.x = 0;
 	gm->ply.plane.y = 0.66;
-	gm->ply.dir.x = 1;
+	gm->ply.dir.x = -1;
 	gm->ply.dir.y = 0;
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_display.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
+/*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:48:13 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/14 14:01:08 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/17 13:29:48 by edlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ void	c3d_render(t_gm *gm)
 				gm->render.side = 1;
 			}
 
-			// print_da(gm->map.map);
 			if (gm->map.map[(int)gm->render.map_y][(int)gm->render.map_x] == '1')
 				gm->render.hit = 1;
 		}
@@ -118,16 +117,16 @@ void	c3d_render(t_gm *gm)
 		if (gm->render.side == 0)
 		{
 			if (gm->render.step_x == 1)
-				curimg = &gm->map.n_img;
+				curimg = &gm->map.w_img;
 			else
-				curimg = &gm->map.s_img;
+				curimg = &gm->map.e_img;
 		}
 		else
 		{
 			if (gm->render.step_y == 1)
-				curimg = &gm->map.w_img;
+				curimg = &gm->map.s_img;
 			else
-				curimg = &gm->map.e_img;
+				curimg = &gm->map.n_img;
 		}
 		//calculate value of wallX
 		double wallX; //where exactly the wall was hit
@@ -140,16 +139,16 @@ void	c3d_render(t_gm *gm)
 		if(gm->render.side == 0)
 		{
 			if (gm->render.raydir_x > 0)
-				texX = curimg->size.x - (curimg->size.x - texX - 1);
-			else
 				texX = curimg->size.x - texX - 1;
+			else
+				texX = curimg->size.x - (curimg->size.x - texX - 1);
 		}
 		if(gm->render.side == 1) 
 		{
 			if (gm->render.raydir_y < 0)
-				texX = curimg->size.x - (curimg->size.x - texX - 1);
-			else
 				texX = curimg->size.x - texX - 1;
+			else
+				texX = curimg->size.x - (curimg->size.x - texX - 1);
 		}
 		draw_verline(curimg, x, draw_start, draw_end, texX, gm);
 	}
