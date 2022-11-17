@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 17:44:03 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/14 12:55:51 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/17 12:49:21 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,21 @@ void	c3d_copy_pixel(t_gm *gm, int src_pixel, int x, int y)
 		= gm->map.main->addr[src_pixel + 2];
 	gm->map.mini->addr[(y * gm->map.mini->sl) + (x * 4) + 3]
 		= gm->map.main->addr[src_pixel + 3];
+}
+
+void	c3d_color_image(t_gm *gm, t_img *img, int color)
+{
+	t_ivct	pos;
+	int		pixel;
+
+	pos.y = -1;
+	while (++pos.y < MMAP_H * MMAP_PX)
+	{
+		pos.x = -1;
+		while (++pos.x < MMAP_W * MMAP_PX)
+		{
+			pixel = (pos.y * img->sl) + (pos.x * 4);
+			change_color(gm, color, pixel, img->addr);
+		}
+	}
 }

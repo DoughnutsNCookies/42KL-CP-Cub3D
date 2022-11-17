@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:41:54 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/14 13:41:57 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/17 12:50:47 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@
 # define TGREY		0x80808080
 # define TWHITE		0x80FFFFFF
 # define TBLACK		0x80000000
+# define TRANS		0xFF000000
 # define PI			3.14159265359
 # define RAD_90DEG	1.57079632679
 
@@ -266,6 +267,7 @@ void	c3d_display_minimap(t_gm *gm);
 
 void	c3d_color_block(t_gm *gm, t_ivct cur, unsigned int color);
 void	c3d_copy_pixel(t_gm *gm, int src_pixel, int x, int y);
+void	c3d_color_image(t_gm *gm, t_img *img, int color);
 
 void	c3d_player_vertical_movement(t_gm *gm, int keycode);
 void	c3d_player_horizontal_movement(t_gm *gm, int keycode);

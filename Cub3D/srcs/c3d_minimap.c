@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:42:06 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/14 13:47:04 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/17 12:54:12 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	create_new_image(t_gm *gm, int type)
 		if (gm->map.mini->ref != NULL)
 			mlx_destroy_image(gm->mlx, gm->map.mini->ref);
 		gm->map.mini->ref = mlx_new_image(gm->mlx,
-				MMAP_W * MMAP_PX, MMAP_W * MMAP_PX);
+				MMAP_W * MMAP_PX, MMAP_H * MMAP_PX);
 		gm->map.mini->addr = mlx_get_data_addr(gm->map.mini->ref,
 				&gm->map.mini->bpp, &gm->map.mini->sl, &gm->map.mini->end);
 	}
@@ -47,12 +47,12 @@ static void	create_map(t_gm *gm)
 			{
 				if (gm->map.map[cur.y][cur.x] == '1')
 					c3d_color_block(gm, cur, TWHITE);
-				else if (gm->map.map[cur.y][cur.x] == ' ')
-					c3d_color_block(gm, cur, TBLACK);
 				else if (gm->map.map[cur.y][cur.x] == 'D')
 					c3d_color_block(gm, cur, TBROWN);
+				else if (gm->map.map[cur.y][cur.x] == ' ')
+					c3d_color_block(gm, cur, TRANS);
 				else
-					c3d_color_block(gm, cur, TGREY);
+					c3d_color_block(gm, cur, TGREY);	
 			}
 		}
 	}
@@ -65,6 +65,7 @@ static void	create_minimap(t_gm *gm)
 	t_ivct	min;
 
 	create_new_image(gm, 2);
+	c3d_color_image(gm, gm->map.mini, TRANS);
 	min.y = (gm->ply.pos.y * MMAP_PX) - (MMAP_PX * (MMAP_H / 2)) - 1;
 	max.y = (gm->ply.pos.y * MMAP_PX) + (MMAP_PX * ((MMAP_H / 2) + 1));
 	min.x = (gm->ply.pos.x * MMAP_PX) - (MMAP_PX * (MMAP_W / 2)) - 1;
