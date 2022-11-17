@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:42:06 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/17 12:54:12 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/17 20:40:59 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	create_map(t_gm *gm)
 				else if (gm->map.map[cur.y][cur.x] == ' ')
 					c3d_color_block(gm, cur, TRANS);
 				else
-					c3d_color_block(gm, cur, TGREY);	
+					c3d_color_block(gm, cur, TGREY);
 			}
 		}
 	}

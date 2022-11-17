@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:41:54 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/17 12:50:47 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/17 20:18:42 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,7 +160,7 @@ typedef struct s_door
  * @param mini Minimap image of the map taken from main
  * @param door Door linked list
  * @param map Map array to be rendered in 2D
- * @param map_in Map array taken from file in 2D 
+ * @param map_raw Map array taken from file in 2D
  * @param size Map size
  */
 typedef struct s_map
@@ -176,7 +176,7 @@ typedef struct s_map
 	t_img	*mini;
 	t_list	*door;
 	char	**map;
-	char	**map_in;
+	char	**map_raw;
 	t_ivct	size;
 	t_img	imgw;
 }	t_map;
@@ -268,6 +268,7 @@ void	c3d_display_minimap(t_gm *gm);
 void	c3d_color_block(t_gm *gm, t_ivct cur, unsigned int color);
 void	c3d_copy_pixel(t_gm *gm, int src_pixel, int x, int y);
 void	c3d_color_image(t_gm *gm, t_img *img, int color);
+char	**c3d_dup_map(char **map, int height);
 
 void	c3d_player_vertical_movement(t_gm *gm, int keycode);
 void	c3d_player_horizontal_movement(t_gm *gm, int keycode);
