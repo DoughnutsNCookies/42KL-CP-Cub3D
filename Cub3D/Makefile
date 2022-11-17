@@ -6,7 +6,7 @@
 #    By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 10:52:13 by schuah            #+#    #+#              #
-#    Updated: 2022/11/17 21:18:23 by schuah           ###   ########.fr        #
+#    Updated: 2022/11/17 21:33:11 by schuah           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ MLX			=	mlx/libmlx.a
 CC			=	gcc
 RM			=	rm -f
 CFLAGS		=	-Wall -Wextra -Werror -Imlx
-# CFLAGS		=	-fsanitize=address -g3
+CFLAGS		=	-fsanitize=address -g3
 MLXFLAGS	=	-L /usr/local/lib -lmlx -framework OpenGL -framework AppKit
 SRCS_FILES	=	c3d_main \
 				c3d_hook \
@@ -30,7 +30,6 @@ SRCS_FILES	=	c3d_main \
 				c3d_check_file \
 				c3d_image_utils \
 				c3d_check_utils \
-				c3d_check_element \
 				c3d_player_control \
 				temp
 SRCS		= 	$(addprefix $(SRCS_DIR), $(addsuffix .c, $(SRCS_FILES)))

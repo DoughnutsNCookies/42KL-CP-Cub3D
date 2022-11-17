@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:41:54 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/17 21:19:13 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/17 21:33:36 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@
 # define PLY_ROTSPD	0.0625
 # define PLY_NEGCOL	0.5
 # define PLY_POSCOL	0.25
+# define PLY_PLANEX	0
+# define PLY_PLANEY	1
 
 /* Self defined */
 # define RED		0xFF0000
@@ -247,7 +249,6 @@ void	c3d_get_map(t_gm *gm, char *str, int fd);
 void	c3d_orient_map(t_gm *gm);
 
 void	c3d_check_file(t_gm *gm, int ac, char **av);
-void	c3d_check_element(t_gm *gm, char **av);
 void	c3d_check_map(t_gm *gm, int x, int y);
 
 void	c3d_all_elements_present(t_gm *gm);

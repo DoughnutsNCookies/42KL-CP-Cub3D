@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 14:54:26 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/17 21:18:39 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/17 21:30:36 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ static void	init_map(t_gm *gm)
 static void	init_ply(t_gm *gm)
 {
 	gm->ply.e_dir = NOTSET;
-	gm->ply.plane.x = 0;
-	gm->ply.plane.y = 0.66;
+	gm->ply.plane.x = PLY_PLANEX;
+	gm->ply.plane.y = PLY_PLANEY;
 	gm->ply.dir.x = -1;
 	gm->ply.dir.y = 0;
 }
