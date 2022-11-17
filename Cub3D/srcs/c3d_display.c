@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:48:13 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/17 21:14:14 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/17 21:18:45 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	c3d_render(t_gm *gm)
 				gm->render.side = 1;
 			}
 
-			if (gm->map.map_raw[(int)gm->render.map_y][(int)gm->render.map_x] == '1')
+			if (gm->map.map[(int)gm->render.map_y][(int)gm->render.map_x] == '1')
 				gm->render.hit = 1;
 		}
 

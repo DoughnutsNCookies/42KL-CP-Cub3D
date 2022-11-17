@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 14:54:26 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/17 20:09:13 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/17 21:18:39 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ static void	init_map(t_gm *gm)
 	gm->map.imgw.ref = mlx_new_image(gm->mlx, WIN_W, WIN_H);
 	gm->map.imgw.addr = mlx_get_data_addr(gm->map.imgw.ref, &gm->map.imgw.bpp,
 			&gm->map.imgw.sl, &gm->map.imgw.end);
-	gm->map.map_raw = NULL;
 }
 
 static void	init_ply(t_gm *gm)

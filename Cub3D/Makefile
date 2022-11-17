@@ -6,7 +6,7 @@
 #    By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 10:52:13 by schuah            #+#    #+#              #
-#    Updated: 2022/11/17 20:38:45 by schuah           ###   ########.fr        #
+#    Updated: 2022/11/17 21:18:23 by schuah           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,6 @@ SRCS_FILES	=	c3d_main \
 				c3d_get_map \
 				c3d_minimap \
 				c3d_check_map \
-				c3d_orient_map \
 				c3d_check_file \
 				c3d_image_utils \
 				c3d_check_utils \
