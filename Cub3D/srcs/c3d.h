@@ -187,6 +187,7 @@ typedef struct s_map
  * 
  * @param e_dir Direction player is facing at in enum
  * @param dir Vector direction of where the player is facing
+ * @param c_dir Constant vector direction of where the player is facing
  * @param pos Position of the player on the map
  * @param plane	View plane of the player
  */
@@ -201,6 +202,7 @@ typedef struct s_ply
 		WEST
 	}	e_dir;
 	t_dvct	dir;
+	t_dvct	c_dir;
 	t_dvct	pos;
 	t_dvct	plane;
 }	t_ply;

@@ -27,8 +27,8 @@ void	c3d_mouse_control(t_gm *gm)
 		mlx_mouse_move(gm->win.ref, ms.x, WIN_H / 2);
 	ratio = ms.x / (double)WIN_W;
 	angle = (PI * ratio * 2) - PI;
-	gm->ply.dir.x = gm->ply.dir.x * cos(angle) + gm->ply.dir.y * sin(angle);
-	gm->ply.dir.y = gm->ply.dir.y * cos(angle) - gm->ply.dir.x * sin(angle);
+	gm->ply.dir.x = gm->ply.c_dir.x * cos(angle) + gm->ply.c_dir.y * sin(angle);
+	gm->ply.dir.y = gm->ply.c_dir.y * cos(angle) - gm->ply.c_dir.x * sin(angle);
 	gm->ply.plane.x = gm->ply.dir.y;
 	gm->ply.plane.y = -gm->ply.dir.x;
 }
