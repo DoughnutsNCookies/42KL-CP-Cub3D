@@ -22,13 +22,6 @@ static int	check_square(t_gm *gm, int x, int y)
 		&& gm->map.map[y][x] != 'D');
 }	
 
-static void	set_dir(t_gm *gm, int dir, int x, int y)
-{
-	gm->ply.e_dir = dir;
-	gm->ply.c_dir.x = x;
-	gm->ply.c_dir.y = y;
-}
-
 static void	get_ply_dir(t_gm *gm, int x, int y)
 {
 	if (gm->map.map[y][x] == 'N' || gm->map.map[y][x] == 'E'
@@ -37,13 +30,13 @@ static void	get_ply_dir(t_gm *gm, int x, int y)
 		if (gm->ply.e_dir != NOTSET)
 			c3d_fail_exit("Duplicated player position in map", NULL);
 		if (gm->map.map[y][x] == 'N')
-			set_dir(gm, NORTH, 0, -1);
+			gm->ply.e_dir = NORTH;
 		else if (gm->map.map[y][x] == 'E')
-			set_dir(gm, EAST, 1, 0);
+			gm->ply.e_dir = EAST;
 		else if (gm->map.map[y][x] == 'S')
-			set_dir(gm, SOUTH, 0, 1);
+			gm->ply.e_dir = SOUTH;
 		else if (gm->map.map[y][x] == 'W')
-			set_dir(gm, WEST, -1, 0);
+			gm->ply.e_dir = WEST;
 		gm->ply.pos.x = (double)x;
 		gm->ply.pos.y = (double)y;
 	}
