@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
+/*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:41:54 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/17 21:33:36 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/18 11:56:04 by edlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@
 # define PLY_NEGCOL	0.5
 # define PLY_POSCOL	0.25
 # define PLY_PLANEX	0
-# define PLY_PLANEY	1
+# define PLY_PLANEY	0.9
 
 /* Self defined */
 # define RED		0xFF0000

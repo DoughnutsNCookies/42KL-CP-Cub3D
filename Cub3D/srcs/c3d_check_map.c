@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_check_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
+/*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 21:36:13 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/15 10:16:51 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/18 12:20:07 by edlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static void	set_dir(t_gm *gm, int dir, int x, int y)
 	gm->ply.e_dir = dir;
 	gm->ply.c_dir.x = x;
 	gm->ply.c_dir.y = y;
+	gm->ply.dir.x = x;
+	gm->ply.dir.y = y;
 }
 
 static void	get_ply_dir(t_gm *gm, int x, int y)
@@ -37,13 +39,29 @@ static void	get_ply_dir(t_gm *gm, int x, int y)
 		if (gm->ply.e_dir != NOTSET)
 			c3d_fail_exit("Duplicated player position in map", NULL);
 		if (gm->map.map[y][x] == 'N')
-			set_dir(gm, NORTH, 0, -1);
+		{
+			set_dir(gm, NORTH, 0, 1);
+			gm->ply.plane.x = 0.9;
+			gm->ply.plane.y = 0;
+		}
 		else if (gm->map.map[y][x] == 'E')
+		{
 			set_dir(gm, EAST, 1, 0);
+			gm->ply.plane.x = 0;
+			gm->ply.plane.y = -0.9;
+		}
 		else if (gm->map.map[y][x] == 'S')
-			set_dir(gm, SOUTH, 0, 1);
+		{
+			set_dir(gm, SOUTH, 0, -1);
+			gm->ply.plane.x = -0.9;
+			gm->ply.plane.y = 0;
+		}
 		else if (gm->map.map[y][x] == 'W')
+		{
 			set_dir(gm, WEST, -1, 0);
+			gm->ply.plane.x = 0;
+			gm->ply.plane.y = 0.9;
+		}
 		gm->ply.pos.x = (double)x;
 		gm->ply.pos.y = (double)y;
 	}

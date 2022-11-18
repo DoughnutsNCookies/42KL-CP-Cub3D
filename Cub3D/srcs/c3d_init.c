@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
+/*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 14:54:26 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/17 21:30:36 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/18 12:20:38 by edlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static void	init_map(t_gm *gm)
 static void	init_ply(t_gm *gm)
 {
 	gm->ply.e_dir = NOTSET;
+	// Below not needed anymore since initalized at check_map.c
 	gm->ply.plane.x = PLY_PLANEX;
 	gm->ply.plane.y = PLY_PLANEY;
 	gm->ply.dir.x = -1;
