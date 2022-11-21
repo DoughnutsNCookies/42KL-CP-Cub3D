@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 12:07:25 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/17 21:14:06 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/21 13:19:21 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	c3d_player_vertical_movement(t_gm *gm, int keycode)
 {
 	t_dvct	new;
 
-	if (keycode == KEY_A)
+	if (keycode == KEY_W)
 	{
 		new.x = gm->ply.pos.x + (gm->ply.dir.x * (PLY_MVSPD));
 		new.y = gm->ply.pos.y + (gm->ply.dir.y * (PLY_MVSPD));
@@ -41,7 +41,7 @@ void	c3d_player_vertical_movement(t_gm *gm, int keycode)
 			gm->ply.pos.y = new.y;
 		}
 	}
-	else if (keycode == KEY_D)
+	else if (keycode == KEY_S)
 	{
 		new.x = gm->ply.pos.x - (gm->ply.dir.x * (PLY_MVSPD));
 		new.y = gm->ply.pos.y - (gm->ply.dir.y * (PLY_MVSPD));
@@ -59,20 +59,20 @@ void	c3d_player_horizontal_movement(t_gm *gm, int keycode)
 	t_dvct	new;
 
 	rad = RAD_90DEG;
-	if (keycode == KEY_S)
+	if (keycode == KEY_D)
 		rad = -RAD_90DEG;
-	if (keycode == KEY_S || keycode == KEY_W)
+	if (keycode == KEY_A || keycode == KEY_D)
 	{
 		new.x = gm->ply.pos.x + (gm->ply.dir.x * cos(rad)
 				- gm->ply.dir.y * sin(rad) * (PLY_MVSPD));
 		new.y = gm->ply.pos.y + (gm->ply.dir.y * cos(rad)
 				+ gm->ply.dir.x * sin(rad) * (PLY_MVSPD));
-		if (keycode == KEY_S && collision(gm, new, PLY_POSCOL) == 0)
+		if (keycode == KEY_A && collision(gm, new, PLY_POSCOL) == 0)
 		{
 			gm->ply.pos.x = new.x;
 			gm->ply.pos.y = new.y;
 		}
-		else if (keycode == KEY_W && collision(gm, new, PLY_NEGCOL) == 0)
+		else if (keycode == KEY_D && collision(gm, new, PLY_NEGCOL) == 0)
 		{
 			gm->ply.pos.x = new.x;
 			gm->ply.pos.y = new.y;

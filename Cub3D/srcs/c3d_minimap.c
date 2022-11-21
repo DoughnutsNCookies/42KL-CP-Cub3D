@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:42:06 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/17 20:40:59 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/21 13:09:59 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	create_new_image(t_gm *gm, int type)
 {
-	if (type == 1)
+	if (type == 1 && gm->map.main->ref == NULL)
 	{
 		gm->map.main->ref = mlx_new_image(gm->mlx, gm->map.size.x * MMAP_PX,
 				gm->map.size.y * MMAP_PX);
