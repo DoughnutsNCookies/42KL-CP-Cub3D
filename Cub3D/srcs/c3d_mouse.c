@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:29:08 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/21 12:38:12 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/22 18:32:15 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void	c3d_mouse_control(t_gm *gm)
 		mlx_mouse_move(gm->win.ref, ms.x, WIN_H / 2);
 	ratio = ms.x / (double)WIN_W;
 	angle = (PI * ratio * 2) - PI;
-	gm->ply.dir.x = gm->ply.c_dir.x * cos(angle) + gm->ply.c_dir.y * sin(angle);
-	gm->ply.dir.y = gm->ply.c_dir.y * cos(angle) - gm->ply.c_dir.x * sin(angle);
-	gm->ply.plane.x = gm->ply.dir.y;
-	gm->ply.plane.y = -gm->ply.dir.x;
+	gm->ply.dir.y = gm->ply.c_dir.x * cos(angle) + gm->ply.c_dir.y * sin(angle);
+	gm->ply.dir.x = gm->ply.c_dir.y * cos(angle) - gm->ply.c_dir.x * sin(angle);
+	gm->ply.plane.x = -gm->ply.dir.y;
+	gm->ply.plane.y = gm->ply.dir.x;
 }
 
 void	c3d_mouse_state(t_gm *gm, int keycode)

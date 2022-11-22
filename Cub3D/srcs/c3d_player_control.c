@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 12:07:25 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/21 13:19:21 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/22 18:36:52 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	c3d_player_horizontal_movement(t_gm *gm, int keycode)
 	t_dvct	new;
 
 	rad = RAD_90DEG;
-	if (keycode == KEY_D)
+	if (keycode == KEY_A)
 		rad = -RAD_90DEG;
 	if (keycode == KEY_A || keycode == KEY_D)
 	{
@@ -87,7 +87,7 @@ void	c3d_player_view(t_gm *gm, int keycode)
 	double	rot_spd;
 
 	rot_spd = -PLY_ROTSPD;
-	if (keycode == KEY_LEFT)
+	if (keycode == KEY_RIGHT)
 		rot_spd = PLY_ROTSPD;
 	if (keycode == KEY_LEFT || keycode == KEY_RIGHT)
 	{
