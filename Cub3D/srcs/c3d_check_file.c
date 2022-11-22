@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 12:41:51 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/21 12:39:32 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/22 15:35:45 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,6 @@ static void	get_element(t_gm *gm, char **split, char *str)
 		set_texture(&gm->map.s_img, gm->mlx, split);
 	else if (ft_strcmp(split[0], "WE") == 0)
 		set_texture(&gm->map.w_img, gm->mlx, split);
-	else if (ft_strcmp(split[0], "D") == 0)
-		set_texture(&gm->map.d_img, gm->mlx, split);
 	else if (ft_strcmp(split[0], "F") == 0)
 		set_color(&gm->map.f_rgb, split);
 	else if (ft_strcmp(split[0], "C") == 0)

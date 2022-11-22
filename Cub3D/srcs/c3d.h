@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:41:54 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/22 15:53:54 by edlim            ###   ########.fr       */
+/*   Updated: 2022/11/22 17:06:54 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,7 +172,7 @@ typedef struct s_map
 	t_img	e_img;
 	t_img	s_img;
 	t_img	w_img;
-	t_img	d_img;
+	t_img	d_img[16];
 	t_img	*main;
 	t_img	*mini;
 	t_list	*door;

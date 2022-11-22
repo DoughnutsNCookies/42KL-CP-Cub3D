@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 14:54:26 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/21 13:05:03 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/22 17:03:59 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ static void	init_map(t_gm *gm)
 	gm->map.e_img.ref = NULL;
 	gm->map.s_img.ref = NULL;
 	gm->map.w_img.ref = NULL;
-	gm->map.d_img.ref = NULL;
 	gm->map.door = NULL;
 	gm->map.map = NULL;
 	gm->map.c_rgb.hex = -1;
@@ -46,9 +45,28 @@ static void	init_ply(t_gm *gm)
 	gm->ply.plane.y = 0;
 }
 
+static void	init_door(t_gm *gm)
+{
+	int		i;
+	char	*path;
+	char	*suffix;
+
+	i = -1;
+	while (++i < 16)
+	{
+		path = ft_strdup("sprites/door/door");
+		suffix = ft_strjoin_free(ft_itoa(i + 1), ".xpm");
+		path = ft_strjoin_free(path, suffix);
+		free(suffix);
+		gm->map.d_img[i].ref = mlx_xpm_file_to_image(gm->mlx, path, &gm->map.d_img[i].size.x, &gm->map.d_img[i].size.y);
+		free(path);
+	}
+}
+
 void	c3d_init_gm(t_gm *gm)
 {
 	init_mlx(gm);
 	init_map(gm);
 	init_ply(gm);
+	init_door(gm);
 }
