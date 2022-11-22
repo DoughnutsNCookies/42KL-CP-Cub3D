@@ -6,7 +6,7 @@
 /*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:41:54 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/22 17:54:06 by edlim            ###   ########.fr       */
+/*   Updated: 2022/11/22 18:45:30 by edlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,7 +172,7 @@ typedef struct s_map
 	t_img	e_img;
 	t_img	s_img;
 	t_img	w_img;
-	t_img	d_img;
+	t_img	d_img[16];
 	t_img	*main;
 	t_img	*mini;
 	t_list	*door;
