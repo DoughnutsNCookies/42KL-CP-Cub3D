@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_display.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
+/*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:48:13 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/22 14:08:51 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/22 15:57:15 by edlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,9 +124,9 @@ void	c3d_render(t_gm *gm)
 		else
 		{
 			if (gm->render.step_y == 1)
-				curimg = &gm->map.n_img;
-			else
 				curimg = &gm->map.s_img;
+			else
+				curimg = &gm->map.n_img;
 		}
 		//calculate value of wallX
 		double wallX; //where exactly the wall was hit
@@ -139,16 +139,16 @@ void	c3d_render(t_gm *gm)
 		if(gm->render.side == 0)
 		{
 			if (gm->render.raydir_x > 0)
-				texX = curimg->size.x - texX - 1;
-			else
 				texX = curimg->size.x - (curimg->size.x - texX - 1);
+			else
+				texX = curimg->size.x - texX - 1;
 		}
 		if(gm->render.side == 1) 
 		{
 			if (gm->render.raydir_y < 0)
-				texX = curimg->size.x - texX - 1;
-			else
 				texX = curimg->size.x - (curimg->size.x - texX - 1);
+			else
+				texX = curimg->size.x - texX - 1;
 		}
 		draw_verline(curimg, x, draw_start, draw_end, texX, gm);
 	}
