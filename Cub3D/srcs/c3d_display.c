@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:48:13 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/21 13:07:22 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/22 14:08:51 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,7 +183,10 @@ int	c3d_display(t_gm *gm)
 	mlx_clear_window(gm->mlx, gm->win.ref);
 	if (gm->win.mouse == 0)
 		c3d_mouse_control(gm);
+	print_da(gm->map.map);
 	c3d_render(gm);
+	printf("Ply plane x: %f\n", gm->ply.plane.x);
+	printf("Ply plane y: %f\n", gm->ply.plane.y);
 	c3d_display_minimap(gm);
 	return (0);
 }
