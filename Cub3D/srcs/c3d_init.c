@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 14:54:26 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/22 17:03:59 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/23 15:10:43 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ static void	init_door(t_gm *gm)
 		suffix = ft_strjoin_free(ft_itoa(i + 1), ".xpm");
 		path = ft_strjoin_free(path, suffix);
 		free(suffix);
-		gm->map.d_img[i].ref = mlx_xpm_file_to_image(gm->mlx, path, &gm->map.d_img[i].size.x, &gm->map.d_img[i].size.y);
+		gm->map.d_img[i].ref = mlx_xpm_file_to_image(gm->mlx, path,
+				&gm->map.d_img[i].size.x, &gm->map.d_img[i].size.y);
 		free(path);
 	}
 }

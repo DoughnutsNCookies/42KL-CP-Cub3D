@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:41:54 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/22 18:45:30 by edlim            ###   ########.fr       */
+/*   Updated: 2022/11/23 15:02:16 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,7 @@
 
 /* Player prefs */
 # define PLY_MVSPD	0.25
-# define PLY_ROTSPD	0.0625
-# define PLY_NEGCOL	0.5
-# define PLY_POSCOL	0.25
+# define PLY_ROTSPD	0.05
 # define PLY_PLANE	1
 
 /* Self defined */

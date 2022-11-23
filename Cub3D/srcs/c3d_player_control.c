@@ -6,18 +6,18 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 12:07:25 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/22 18:36:52 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/23 15:10:25 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "c3d.h"
 
-static int	collision(t_gm *gm, t_dvct pos, double pad)
+static int	collision(t_gm *gm, t_dvct pos)
 {
 	t_ivct	map_pos;
 
-	map_pos.x = (int)(pos.x + pad);
-	map_pos.y = (int)(pos.y + pad);
+	map_pos.x = (int)(round(pos.x));
+	map_pos.y = (int)(round(pos.y));
 	if (map_pos.x >= 0 && map_pos.x < gm->map.size.x
 		&& map_pos.y >= 0 && map_pos.y < gm->map.size.y)
 	{
@@ -29,26 +29,26 @@ static int	collision(t_gm *gm, t_dvct pos, double pad)
 
 void	c3d_player_vertical_movement(t_gm *gm, int keycode)
 {
-	t_dvct	new;
+	t_dvct	check;
 
 	if (keycode == KEY_W)
 	{
-		new.x = gm->ply.pos.x + (gm->ply.dir.x * (PLY_MVSPD));
-		new.y = gm->ply.pos.y + (gm->ply.dir.y * (PLY_MVSPD));
-		if (collision(gm, new, PLY_NEGCOL) == 0)
+		check.x = gm->ply.pos.x + (gm->ply.dir.x * PLY_MVSPD * 2);
+		check.y = gm->ply.pos.y + (gm->ply.dir.y * PLY_MVSPD * 2);
+		if (collision(gm, check) == 0)
 		{
-			gm->ply.pos.x = new.x;
-			gm->ply.pos.y = new.y;
+			gm->ply.pos.x = gm->ply.pos.x + (gm->ply.dir.x * PLY_MVSPD);
+			gm->ply.pos.y = gm->ply.pos.y + (gm->ply.dir.y * PLY_MVSPD);
 		}
 	}
 	else if (keycode == KEY_S)
 	{
-		new.x = gm->ply.pos.x - (gm->ply.dir.x * (PLY_MVSPD));
-		new.y = gm->ply.pos.y - (gm->ply.dir.y * (PLY_MVSPD));
-		if (collision(gm, new, PLY_POSCOL) == 0)
+		check.x = gm->ply.pos.x - (gm->ply.dir.x * PLY_MVSPD * 2);
+		check.y = gm->ply.pos.y - (gm->ply.dir.y * PLY_MVSPD * 2);
+		if (collision(gm, check) == 0)
 		{
-			gm->ply.pos.x = new.x;
-			gm->ply.pos.y = new.y;
+			gm->ply.pos.x = gm->ply.pos.x - (gm->ply.dir.x * PLY_MVSPD);
+			gm->ply.pos.y = gm->ply.pos.y - (gm->ply.dir.y * PLY_MVSPD);
 		}
 	}
 }
@@ -56,26 +56,23 @@ void	c3d_player_vertical_movement(t_gm *gm, int keycode)
 void	c3d_player_horizontal_movement(t_gm *gm, int keycode)
 {
 	double	rad;
-	t_dvct	new;
+	t_dvct	check;
 
 	rad = RAD_90DEG;
 	if (keycode == KEY_A)
 		rad = -RAD_90DEG;
 	if (keycode == KEY_A || keycode == KEY_D)
 	{
-		new.x = gm->ply.pos.x + (gm->ply.dir.x * cos(rad)
-				- gm->ply.dir.y * sin(rad) * (PLY_MVSPD));
-		new.y = gm->ply.pos.y + (gm->ply.dir.y * cos(rad)
-				+ gm->ply.dir.x * sin(rad) * (PLY_MVSPD));
-		if (keycode == KEY_A && collision(gm, new, PLY_POSCOL) == 0)
+		check.x = gm->ply.pos.x + (gm->ply.dir.x * cos(rad)
+				- gm->ply.dir.y * sin(rad) * (PLY_MVSPD * 2));
+		check.y = gm->ply.pos.y + (gm->ply.dir.y * cos(rad)
+				+ gm->ply.dir.x * sin(rad) * (PLY_MVSPD * 2));
+		if (collision(gm, check) == 0)
 		{
-			gm->ply.pos.x = new.x;
-			gm->ply.pos.y = new.y;
-		}
-		else if (keycode == KEY_D && collision(gm, new, PLY_NEGCOL) == 0)
-		{
-			gm->ply.pos.x = new.x;
-			gm->ply.pos.y = new.y;
+			gm->ply.pos.x = gm->ply.pos.x + (gm->ply.dir.x * cos(rad)
+					- gm->ply.dir.y * sin(rad) * (PLY_MVSPD));
+			gm->ply.pos.y = gm->ply.pos.y + (gm->ply.dir.y * cos(rad)
+					+ gm->ply.dir.x * sin(rad) * (PLY_MVSPD));
 		}
 	}
 }
