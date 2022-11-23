@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 14:54:26 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/23 17:49:44 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/23 18:16:37 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	init_map(t_gm *gm)
 	gm->map.w_img.ref = NULL;
 	gm->map.d_img.ref = NULL;
 	gm->map.door = NULL;
-	gm->map.door_state = 0;
+	gm->map.door_state = 1;
 	gm->map.map = NULL;
 	gm->map.c_rgb.hex = -1;
 	gm->map.f_rgb.hex = -1;
