@@ -6,12 +6,13 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 17:44:03 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/23 14:49:08 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/23 17:05:10 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "c3d.h"
 
+/* End == 0 : BGRA */
 static void	change_color(t_gm *gm, unsigned int color, int pixel, char *addr)
 {
 	if (gm->map.main->end == 1)
@@ -47,7 +48,7 @@ void	c3d_color_block(t_gm *gm, t_ivct cur, unsigned int color)
 	}
 }
 
-void	c3d_copy_pixel(t_gm *gm, int src_pixel, int x, int y)
+void	c3d_copy_main(t_gm *gm, int src_pixel, int x, int y)
 {
 	gm->map.mini->addr[(y * gm->map.mini->sl) + (x * 4) + 0]
 		= gm->map.main->addr[src_pixel + 0];

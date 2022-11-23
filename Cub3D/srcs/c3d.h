@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:41:54 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/23 15:02:16 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/23 17:53:27 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define KEY_A		0
 # define KEY_S		1
 # define KEY_D		2
+# define KEY_E		14
 # define KEY_M		46
 # define KEY_LEFT	123
 # define KEY_RIGHT	124
@@ -45,6 +46,7 @@
 # define PLY_MVSPD	0.25
 # define PLY_ROTSPD	0.05
 # define PLY_PLANE	1
+# define DOOR_SPD	25
 
 /* Self defined */
 # define RED		0xFF0000
@@ -124,12 +126,15 @@ typedef struct s_img
  * @param ref Window reference
  * @param frame Current frame
  * @param size Image size
+ * @param playing Whether an animation is playing
+ * @param mouse Mouse state
  */
 typedef struct s_win
 {
 	void	*ref;
 	int		frame;
 	int		mouse;
+	int		playing;
 	t_ivct	size;
 }	t_win;
 
@@ -170,10 +175,11 @@ typedef struct s_map
 	t_img	e_img;
 	t_img	s_img;
 	t_img	w_img;
-	t_img	d_img[16];
+	t_img	d_img;
 	t_img	*main;
 	t_img	*mini;
 	t_list	*door;
+	int		door_state;
 	char	**map;
 	t_ivct	size;
 	t_img	imgw;
@@ -263,7 +269,7 @@ int		c3d_display(t_gm *gm);
 void	c3d_display_minimap(t_gm *gm);
 
 void	c3d_color_block(t_gm *gm, t_ivct cur, unsigned int color);
-void	c3d_copy_pixel(t_gm *gm, int src_pixel, int x, int y);
+void	c3d_copy_main(t_gm *gm, int src_pixel, int x, int y);
 void	c3d_color_image(t_gm *gm, t_img *img, int color);
 
 void	c3d_player_vertical_movement(t_gm *gm, int keycode);
@@ -271,6 +277,9 @@ void	c3d_player_horizontal_movement(t_gm *gm, int keycode);
 void	c3d_player_view(t_gm *gm, int keycode);
 void	c3d_mouse_state(t_gm *gm, int keycode);
 void	c3d_mouse_control(t_gm *gm);
+
+void	c3d_door_state(t_gm *gm, int keycode);
+void	c3d_update_door(t_gm *gm);
 
 // Temp (TO DELETE)
 void	print_ll(t_list **list);

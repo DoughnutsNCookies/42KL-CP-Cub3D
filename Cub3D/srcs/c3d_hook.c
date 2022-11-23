@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 14:30:19 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/21 13:20:20 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/23 16:27:29 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static int	c3d_user_input(int keycode, t_gm *gm)
 	c3d_player_horizontal_movement(gm, keycode);
 	c3d_player_view(gm, keycode);
 	c3d_mouse_state(gm, keycode);
+	c3d_door_state(gm, keycode);
 	return (0);
 }
 

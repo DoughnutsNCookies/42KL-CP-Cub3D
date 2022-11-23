@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:48:13 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/22 18:46:34 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/23 18:00:19 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,5 +191,6 @@ int	c3d_display(t_gm *gm)
 		c3d_mouse_control(gm);
 	c3d_render(gm);
 	c3d_display_minimap(gm);
+	c3d_update_door(gm);
 	return (0);
 }

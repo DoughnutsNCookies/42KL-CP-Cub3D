@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:42:06 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/21 13:09:59 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/23 17:51:33 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static void	create_minimap(t_gm *gm)
 			if (cur.x >= 0 && cur.y >= 0
 				&& cur.x <= (gm->map.size.x * MMAP_PX) - 1
 				&& cur.y <= (gm->map.size.y * MMAP_PX) - 1)
-				c3d_copy_pixel(gm, (cur.y * gm->map.main->sl) + (cur.x * 4),
+				c3d_copy_main(gm, (cur.y * gm->map.main->sl) + (cur.x * 4),
 					cur.x - min.x - 1, cur.y - min.y - 1);
 		}
 	}
