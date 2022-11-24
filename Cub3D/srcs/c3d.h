@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:41:54 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/23 17:53:27 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/24 12:52:28 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@
 # define TWHITE		0x80FFFFFF
 # define TBLACK		0x80000000
 # define TRANS		0xFF000000
-# define PI			3.14159265359
-# define RAD_90DEG	1.57079632679
 
 /**
  * @brief Double vector struct

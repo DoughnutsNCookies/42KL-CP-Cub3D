@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 12:07:25 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/23 18:16:03 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/24 12:54:21 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ void	c3d_player_horizontal_movement(t_gm *gm, int keycode)
 	double	rad;
 	t_dvct	check;
 
-	rad = RAD_90DEG;
+	rad = M_PI / 2;
 	if (keycode == KEY_A)
-		rad = -RAD_90DEG;
+		rad = -M_PI / 2;
 	if (keycode == KEY_A || keycode == KEY_D)
 	{
 		check.x = gm->ply.pos.x + (gm->ply.dir.x * cos(rad)
