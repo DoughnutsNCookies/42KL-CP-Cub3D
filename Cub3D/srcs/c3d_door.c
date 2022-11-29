@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_door.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
+/*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 16:14:49 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/23 17:52:29 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/29 15:22:40 by edlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,5 @@ void	c3d_door_state(t_gm *gm, int keycode)
 {
 	if (keycode != KEY_E)
 		return ;
-	gm->map.door_state = gm->map.door_state == 0;
 	gm->win.playing = 1;
 }
