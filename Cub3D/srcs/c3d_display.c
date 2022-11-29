@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_display.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:48:13 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/29 15:14:49 by edlim            ###   ########.fr       */
+/*   Updated: 2022/11/29 16:07:36 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	renderdoor(t_gm *gm)
 				gm->render.side = 1;
 			}
 
-			if ((gm->map.map[(int)gm->render.map_y][(int)gm->render.map_x] == 'D' && gm->map.door_state == 1) ||
+			if ((gm->map.map[(int)gm->render.map_y][(int)gm->render.map_x] == 'D') ||
 				gm->map.map[(int)gm->render.map_y][(int)gm->render.map_x] == '1')
 			{
 				gm->render.hit = 1;
@@ -299,3 +299,19 @@ int	c3d_display(t_gm *gm)
 	c3d_update_door(gm);
 	return (0);
 }
+
+/**
+ * E
+ * 1
+ * 1
+ * 1
+ * 1
+ * 1
+ * 
+ * E
+ * 1
+ * 1
+ * 1
+ * 1
+ * 0
+ */

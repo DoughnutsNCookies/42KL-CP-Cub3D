@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d_door.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 16:14:49 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/29 15:22:40 by edlim            ###   ########.fr       */
+/*   Updated: 2022/11/29 16:22:32 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	c3d_update_door(t_gm *gm)
 		gm->win.playing = 0;
 		playback *= -1;
 	}
+	gm->map.door_state = gm->map.door_state == D_OPEN;
 }
 
 void	c3d_door_state(t_gm *gm, int keycode)

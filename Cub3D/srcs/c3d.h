@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:41:54 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/24 12:52:28 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/29 16:00:18 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@
 # define TWHITE		0x80FFFFFF
 # define TBLACK		0x80000000
 # define TRANS		0xFF000000
+# define D_OPEN		0
+# define D_CLOSE	1
 
 /**
  * @brief Double vector struct

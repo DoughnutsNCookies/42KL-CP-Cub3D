@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 12:07:25 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/24 12:54:21 by schuah           ###   ########.fr       */
+/*   Updated: 2022/11/29 16:23:05 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	collision(t_gm *gm, t_dvct pos)
 		if (gm->map.map[map_pos.y][map_pos.x] == '1')
 			return (1);
 		if (gm->map.map[map_pos.y][map_pos.x] == 'D'
-			&& gm->map.door_state)
+			&& gm->map.door_state == D_CLOSE)
 			return (1);
 	}
 	return (0);
