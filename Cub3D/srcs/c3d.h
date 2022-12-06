@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
+/*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:41:54 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/29 16:00:18 by schuah           ###   ########.fr       */
+/*   Updated: 2022/12/06 15:04:21 by edlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,6 +215,8 @@ typedef struct s_render
 	double	camera_x;
 	double	raydir_x;
 	double	raydir_y;
+	double	offset_x;
+	double	offset_y;
 	int		map_x;
 	int		map_y;
 	double	side_dist_x;
@@ -224,6 +226,11 @@ typedef struct s_render
 	double	perp_wall_dist;
 	int		step_x;
 	int		step_y;
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
+	double	wall_x;
+	int		tex_x;
 	int		hit;
 	int		side;
 }	t_render;
@@ -285,5 +292,14 @@ void	c3d_update_door(t_gm *gm);
 void	print_ll(t_list **list);
 void	print_da(char **array);
 void	print_dl(t_list **list);
+
+//Render functions
+void	c3d_render(t_gm *gm);
+void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
+void	draw_verline(t_img *img, int i, t_gm *gm);
+void	set_variables(t_gm *gm, int x);
+void	check_steps(t_gm *gm);
+void	set_length(t_gm *gm);
+void	check_sides(t_gm *gm, t_img *curimg);
 
 #endif

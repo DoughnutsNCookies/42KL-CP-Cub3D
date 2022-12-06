@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+         #
+#    By: edlim <edlim@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 10:52:13 by schuah            #+#    #+#              #
-#    Updated: 2022/11/23 16:38:50 by schuah           ###   ########.fr        #
+#    Updated: 2022/12/06 15:03:48 by edlim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,9 @@ SRCS_FILES	=	c3d_main \
 				c3d_image_utils \
 				c3d_check_utils \
 				c3d_player_control \
+				c3d_render \
+				c3d_render_utils \
+				c3d_draw \
 				temp
 SRCS		= 	$(addprefix $(SRCS_DIR), $(addsuffix .c, $(SRCS_FILES)))
 OBJS		= 	$(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRCS_FILES)))
