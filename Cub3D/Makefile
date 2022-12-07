@@ -6,7 +6,7 @@
 #    By: edlim <edlim@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 10:52:13 by schuah            #+#    #+#              #
-#    Updated: 2022/12/06 15:03:48 by edlim            ###   ########.fr        #
+#    Updated: 2022/12/06 17:56:13 by edlim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRCS_FILES	=	c3d_main \
 				c3d_player_control \
 				c3d_render \
 				c3d_render_utils \
+				c3d_renderdoor \
 				c3d_draw \
 				temp
 SRCS		= 	$(addprefix $(SRCS_DIR), $(addsuffix .c, $(SRCS_FILES)))

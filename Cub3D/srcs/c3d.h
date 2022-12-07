@@ -6,7 +6,7 @@
 /*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:41:54 by schuah            #+#    #+#             */
-/*   Updated: 2022/12/06 15:04:21 by edlim            ###   ########.fr       */
+/*   Updated: 2022/12/06 17:59:24 by edlim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -295,6 +295,7 @@ void	print_dl(t_list **list);
 
 //Render functions
 void	c3d_render(t_gm *gm);
+void	renderdoor(t_gm *gm);
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 void	draw_verline(t_img *img, int i, t_gm *gm);
 void	set_variables(t_gm *gm, int x);
