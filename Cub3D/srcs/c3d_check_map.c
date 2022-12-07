@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 21:36:13 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/23 16:38:32 by schuah           ###   ########.fr       */
+/*   Updated: 2022/12/07 17:36:32 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,20 +59,6 @@ static void	get_ply_dir(t_gm *gm, int x, int y)
 	}
 }
 
-static void	get_door(t_gm *gm, int x, int y)
-{
-	t_ivct	vct;
-	t_list	*new;
-
-	if (gm->map.map[y][x] != 'D')
-		return ;
-	vct.x = x;
-	vct.y = y;
-	new = ft_lstnew(ft_calloc(1, sizeof(t_ivct)));
-	ft_memcpy(new->content, &vct, sizeof(t_ivct));
-	ft_lstadd_back(&gm->map.door, new);
-}
-
 void	c3d_check_map(t_gm *gm, int x, int y)
 {
 	int	error;
@@ -85,7 +71,8 @@ void	c3d_check_map(t_gm *gm, int x, int y)
 		|| gm->map.map[y][x] == 'W' || gm->map.map[y][x] == 'D')
 	{
 		get_ply_dir(gm, x, y);
-		get_door(gm, x, y);
+		if (gm->map.map[y][x] == 'D')
+			gm->map.door_state = D_CLOSE;
 		error += check_square(gm, x + 1, y);
 		error += check_square(gm, x - 1, y);
 		error += check_square(gm, x, y + 1);

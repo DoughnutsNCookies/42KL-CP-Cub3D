@@ -6,7 +6,7 @@
 /*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 12:41:51 by schuah            #+#    #+#             */
-/*   Updated: 2022/11/23 16:37:27 by schuah           ###   ########.fr       */
+/*   Updated: 2022/12/07 17:36:25 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,6 @@ void	c3d_check_file(t_gm *gm, int ac, char **av)
 		c3d_check_map(gm, 0, 0);
 	if (gm->ply.e_dir == NOTSET)
 		c3d_fail_exit("No player set in map", NULL);
-	if (gm->map.door != NULL && gm->map.d_img.ref == NULL)
+	if (gm->map.door_state == D_CLOSE && gm->map.d_img.ref == NULL)
 		c3d_fail_exit("Door in use but no image path set for texture", NULL);
 }

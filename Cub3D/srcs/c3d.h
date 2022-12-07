@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   c3d.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edlim <edlim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: schuah <schuah@student.42kl.edu.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:41:54 by schuah            #+#    #+#             */
-/*   Updated: 2022/12/06 17:59:24 by edlim            ###   ########.fr       */
+/*   Updated: 2022/12/07 17:44:00 by schuah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@
 /**
  * @brief Double vector struct
  * 
- * @param x X value
- * @param y Y value
+ * @param x X value in double
+ * @param y Y value in double
  */
 typedef struct s_dvct
 {
@@ -75,8 +75,8 @@ typedef struct s_dvct
 /**
  * @brief Int vector struct
  * 
- * @param x X value
- * @param y Y value
+ * @param x X value in int
+ * @param y Y value in int
  */
 typedef struct s_ivct
 {
@@ -166,6 +166,7 @@ typedef struct s_door
  * @param map Map array to be rendered in 2D
  * @param map_raw Map array taken from file in 2D
  * @param size Map size
+ * @param imgw Image whole after rendering
  */
 typedef struct s_map
 {
@@ -178,11 +179,10 @@ typedef struct s_map
 	t_img	d_img;
 	t_img	*main;
 	t_img	*mini;
-	t_list	*door;
+	t_img	imgw;
+	t_ivct	size;
 	int		door_state;
 	char	**map;
-	t_ivct	size;
-	t_img	imgw;
 }	t_map;
 
 /**
@@ -210,29 +210,42 @@ typedef struct s_ply
 	t_dvct	plane;
 }	t_ply;
 
+/**
+ * @brief Render struct
+ * 
+ * @param delta_dist Delta distance vector
+ * @param side_dist	Side distance vector
+ * @param offset Offset vector
+ * @param raydir Ray direction vector
+ * @param step Step vector
+ * @param map Map vector
+ * @param perp_wall_dist Perpendicular wall distance vector
+ * @param camera_x X axis of the camera
+ * @param wall_x X axis of the wall
+ * @param line_h Line height
+ * @param d_start Y axis for starting draw pos
+ * @param d_end Y axis for end draw pos
+ * @param tex_x X axis for texture
+ * @param side Side value
+ * @param hit Hit value
+ */
 typedef struct s_render
 {
-	double	camera_x;
-	double	raydir_x;
-	double	raydir_y;
-	double	offset_x;
-	double	offset_y;
-	int		map_x;
-	int		map_y;
-	double	side_dist_x;
-	double	side_dist_y;
-	double	delta_dist_x;
-	double	delta_dist_y;
+	t_dvct	delta_dist;
+	t_dvct	side_dist;
+	t_dvct	offset;
+	t_dvct	raydir;
+	t_dvct	step;
+	t_ivct	map;
 	double	perp_wall_dist;
-	int		step_x;
-	int		step_y;
-	int		line_height;
-	int		draw_start;
-	int		draw_end;
+	double	camera_x;
 	double	wall_x;
+	int		line_h;
+	int		d_start;
+	int		d_end;
 	int		tex_x;
-	int		hit;
 	int		side;
+	int		hit;
 }	t_render;
 
 /**
@@ -288,19 +301,13 @@ void	c3d_mouse_control(t_gm *gm);
 void	c3d_door_state(t_gm *gm, int keycode);
 void	c3d_update_door(t_gm *gm);
 
-// Temp (TO DELETE)
-void	print_ll(t_list **list);
-void	print_da(char **array);
-void	print_dl(t_list **list);
-
-//Render functions
 void	c3d_render(t_gm *gm);
-void	renderdoor(t_gm *gm);
-void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
-void	draw_verline(t_img *img, int i, t_gm *gm);
-void	set_variables(t_gm *gm, int x);
-void	check_steps(t_gm *gm);
-void	set_length(t_gm *gm);
-void	check_sides(t_gm *gm, t_img *curimg);
+void	c3d_renderdoor(t_gm *gm);
+void	c3d_my_mlx_pixel_put(t_img *data, int x, int y, int color);
+void	c3d_draw_verline(t_img *img, int i, t_gm *gm);
+void	c3d_set_variables(t_gm *gm, int x);
+void	c3d_check_steps(t_gm *gm);
+void	c3d_set_length(t_gm *gm);
+void	c3d_check_sides(t_gm *gm, t_img *curimg);
 
 #endif
